@@ -9,5 +9,15 @@ const days = [
       "title": "Palindrome Check",
       "src": "day-0/exercise.html"
     }
+  },
+  {
+    "day": 1,
+    "date": "2026-08-15",
+    "title": "Day 1: All Basic Concepts Together",
+    "concepts": "day-1/concepts.html",
+    "exercise": {
+      "title": "Prime Check",
+      "src": "day-1/exercise.html"
+    }
   }
 ];

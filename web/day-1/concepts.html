@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 1: All Basic Concepts Together · Java, One Concept at a Time</title>
+<script src="../theme.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script src="../tailwind.config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* keep ASCII/box-drawing diagrams intact: no wrapping, scroll if too wide */
+  .prose pre { white-space: pre; overflow-x: auto; }
+</style>
+</head>
+<body class="font-sans bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200 min-h-screen">
+
+<header class="border-b border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 py-6 flex items-center justify-between">
+    <a href="../index.html" class="text-sm font-medium text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300">← Java, One Concept at a Time</a>
+    <button
+      onclick="toggleTheme()"
+      aria-label="Toggle dark mode"
+      title="Toggle dark mode"
+      class="shrink-0 rounded-full border border-stone-200 bg-white p-2 text-base leading-none hover:border-amber-300 dark:border-stone-700 dark:bg-stone-800 dark:hover:border-amber-500"
+    >
+      <span class="dark:hidden">🌙</span>
+      <span class="hidden dark:inline">☀️</span>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 sm:px-8 py-10">
+  <article
+    id="content"
+    class="prose prose-lg prose-stone dark:prose-invert max-w-none font-serif
+           prose-headings:font-sans prose-headings:font-semibold
+           prose-code:font-mono prose-pre:font-mono
+           prose-a:text-amber-700 dark:prose-a:text-amber-400"
+  ></article>
+</main>
+
+<!-- Markdown source, base64-encoded so it ships inline with no fetch() of a
+     separate file — that's what breaks when this page is opened via file://. -->
+<script id="md-source" type="text/plain">IyBEYXkgMTogQWxsIEJhc2ljIENvbmNlcHRzIFRvZ2V0aGVyCgojIyBtYWluIG1ldGhvZDogVGhlIHByb2dyYW0gc3RhcnRpbmcgcG9pbnQKCmBgYApwdWJsaWMgc3RhdGljIHZvaWQgbWFpbihTdHJpbmdbXSBhcmdzKXt9CiAgIHwgICAgICB8ICAgICB8ICAgIHwgICAgICAgICAgICAgfAogICB8ICAgICAgfCAgICAgfCAgICB8IExpc3Qgb2YgYXJndW1lbnRzIHBhc3NlZCB0byB0aGUgcHJvZ3JhbQogICB8ICAgICAgfCAgICAgfCAgICB8CiAgIHwgICAgICB8ICAgICB8IFRoZSBuYW1lIHRoZSBKVk0gbG9va3MgZm9yLCBpdCBtdXN0IG1hdGNoIHRoaXMgZXhhY3RseQogICB8ICAgICAgfCAgICAgfAogICB8ICAgICAgfCBSZXR1cm5zIG5vdGhpbmcgdG8gdGhlIEpWTQogICB8ICAgICAgfAogICB8IFRoZSBKVk0gY2FsbHMgaXQgd2l0aG91dCBoYXZpbmcgdG8gY3JlYXRlIGFuIGluc3RhbmNlLgogICB8CiAgIE11c3QgYmUgcmVhY2hhYmxlIGZyb20gb3V0c2lkZSB0aGUgY2xhc3MsIHRoZSBKVk0gaXMgdGhlIG9uZSBjYWxsaW5nIGl0CmBgYAoKVGhpcyBleGFjdCBzaWduYXR1cmUgaXMgYSBjb250cmFjdCB3aXRoIHRoZSBKVk06IGNoYW5nZSBhbnkgcGFydCBvZiBpdAoocmVuYW1lIGBtYWluYCwgZHJvcCBgc3RhdGljYCwgbWFrZSBpdCByZXR1cm4gc29tZXRoaW5nKSBhbmQgdGhlIEpWTSB3b24ndApyZWNvZ25pemUgaXQgYXMgYW4gZW50cnkgcG9pbnQuIEl0J2xsIGNvbXBpbGUgZmluZSBidXQgZmFpbCBhdCBsYXVuY2guCgojIyBQb29sIG9mIFN0cmluZ3MKCi0gQSBwbGFjZSBpbiBtZW1vcnkgdG8gc3RvcmUgYWxsIHRoZSBzdHJpbmdzCgotIFN0cmluZ3MgYXJlIGltbXV0YWJsZSwgd2hlbmV2ZXIgYSBuZXcgc3RyaW5nIGlzIGNyZWF0ZWQsIHRoZSBKVk0gd2lsbCBjaGVjayB0aGUKcG9vbCBhbmQgaWYgYSBtYXRjaGluZyBzdHJpbmcgaXMgZm91bmQgaXQgd2lsbCByZXR1cm4gdGhlIHJlZmVyZW5jZSB0byB0aGF0IG9iamVjdC4KCi0gU3RyaW5nIGxpdGVyYWxzIGxpa2UgImZvbyIgdXNlIHRoZSBTdHJpbmcgcG9vbC4gbmV3IFN0cmluZygiZm9vIikgY3JlYXRlcyBhIG5ldyBoZWFwIG9iamVjdCwgZXZlbiB0aG91Z2ggImZvbyIgaXRzZWxmIGlzIHBvb2xlZC4gU28gbmV3IFN0cmluZygiYSIpID09ICJhIiBpcyBmYWxzZSwgd2hpbGUgImEiID09ICJhIiBpcyB0cnVlLiBVc2UgLmludGVybigpIHRvIGdldCB0aGUgcG9vbGVkIHJlZmVyZW5jZS4KCgojIyBQYWNrYWdlcwoKLSB1c2VkIHRvIG9yZ2FuaXplIHRoZSBjb2RlIGFuZCBwcmV2ZW50IGNvbmZsaWN0cwoKCiMjIEFjY2VzcyBNb2RpZmllcnM6CgotIHB1YmxpYzogYWNjZXNzIGdsb2JhbGx5Ci0gcHJpdmF0ZTogYWNjZXNzIG9ubHkgd2l0aGluIHRoZSBzYW1lIGNsYXNzCi0gcHJvdGVjdGVkOiBhY2Nlc3Mgd2l0aGluIHRoZSBzYW1lIHBhY2thZ2UgYW5kIHN1YmNsYXNzZXMKLSBkZWZhdWx0IChubyBrZXl3b3JkKTogYWNjZXNzIG9ubHkgd2l0aGluIHRoZSBzYW1lIHBhY2thZ2Ug4oCUIG5hcnJvd2VyIHRoYW4gYHByb3RlY3RlZGAsIG5vIHN1YmNsYXNzLW91dHNpZGUtdGhlLXBhY2thZ2UgYWNjZXNzCgoKIyMgRGF0YSBUeXBlcwoKfCBQcmltaXRpdmVzIHwgc2l6ZSAgICB8IHdyYXBwZXIgICAgIHwKfC0tLS0tLS0tLS0tLXwtLS0tLS0tLS18LS0tLS0tLS0tLS0tLXwKfCBib29sZWFuICAgIHwgMSBiaXQqICB8IGBCb29sZWFuYCAgIHwKfCBjaGFyICAgICAgIHwgMiBieXRlcyB8IGBDaGFyYWN0ZXJgIHwKfCBieXRlICAgICAgIHwgMSBieXRlICB8IGBCeXRlYCAgICAgIHwKfCBzaG9ydCAgICAgIHwgMiBieXRlcyB8IGBTaG9ydGAgICAgIHwKfCBpbnQgICAgICAgIHwgNCBieXRlcyB8IGBJbnRlZ2VyYCAgIHwKfCBsb25nICAgICAgIHwgOCBieXRlcyB8IGBMb25nYCAgICAgIHwKfCBmbG9hdCAgICAgIHwgNCBieXRlcyB8IGBGbG9hdGAgICAgIHwKfCBkb3VibGUgICAgIHwgOCBieXRlcyB8IGBEb3VibGVgICAgIHwKCgpXcmFwcGVycyBlbmNhcHN1bGF0ZSBhIHByaW1pdGl2ZSBpbiBhbiBvYmplY3QsIHNvIHRoZXkncmUgdXNhYmxlIHdoZXJlIGFuCm9iamVjdCBpcyByZXF1aXJlZCAoZ2VuZXJpY3MsIGNvbGxlY3Rpb25zIOKAlCB5b3UgY2FuJ3QgaGF2ZSBhIGBMaXN0PGludD5gLApvbmx5IGBMaXN0PEludGVnZXI+YCkuIFRoZXkncmUgYGZpbmFsYCBhbmQgaW1tdXRhYmxlLCBzYW1lIGFzIGBTdHJpbmdgLgoKTm9uLXByaW1pdGl2ZXMgKHJlZmVyZW5jZSB0eXBlcyk6IGBTdHJpbmdgLCBhcnJheXMsIGFuZCBhbnkgYGNsYXNzYCB5b3UKZGVmaW5lLiBBIHZhcmlhYmxlIG9mIGEgcmVmZXJlbmNlIHR5cGUgaG9sZHMgYSByZWZlcmVuY2UgdG8gYW4gb2JqZWN0IG9uCnRoZSBoZWFwLCBub3QgdGhlIHZhbHVlIGl0c2VsZiDigJQgdGhhdCdzIHRoZSByZWFsIHByaW1pdGl2ZS9ub24tcHJpbWl0aXZlCnNwbGl0LCBub3QgdGhlIHNpemUuCgoKIyMgU3RyaW5nCgotIEFuIGFic3RyYWN0aW9uIHRvIHN0b3JlIGEgc2VxdWVuY2Ugb2YgY2hhcmFjdGVycwotIEltbXV0YWJsZSDigJQgZXZlcnkgIm1vZGlmaWNhdGlvbiIgKGBjb25jYXRgLCBgc3Vic3RyaW5nYCwgLi4uKSByZXR1cm5zIGEKICBuZXcgYFN0cmluZ2AgcmF0aGVyIHRoYW4gY2hhbmdpbmcgdGhlIG9yaWdpbmFsLiBUaGF0J3Mgd2hhdCBtYWtlcyBzdHJpbmcKICBwb29saW5nIGFuZCBzYWZlIHNoYXJpbmcgYWNyb3NzIHRocmVhZHMgcG9zc2libGUgaW4gdGhlIGZpcnN0IHBsYWNlLgoKLSBTdHJpbmdCdWZmZXIgdGhyZWFkIHNhZmUgKHN5bmNocm9uaXplZCBtZXRob2RzKQotIFN0cmluZ0J1aWxkZXIgbm90IHRocmVhZCBzYWZlLCBidXQgZmFzdGVyIOKAlCB1c2UgaXQgdW5sZXNzIG11bHRpcGxlIHRocmVhZHMgdG91Y2ggdGhlIHNhbWUgaW5zdGFuY2UKCgojIyBBcnJheToKCi0gQSBkYXRhIHN0cnVjdHVyZSB0byBzdG9yZSBhIHNlcXVlbmNlIG9mIGVsZW1lbnRzCi0gSXQgY2FuIGhhdmUgbXVsdGlwbGUgZGltZW5zaW9ucyAobWF0cml4KQotIEVsZW1lbnRzIGNhbiBiZSBhY2Nlc3NlZCB1c2luZyB0aGUgaW5kZXggPT0+IE8oMSkKLSBzaXplIGlzIGZpeGVkCgoKIyMgQ2xhc3MgVmFyaWFibGUgdnMgSW5zdGFuY2UgVmFyaWFibGUKCi0gQ2xhc3MgdmFyaWFibGVzIGFyZSBgc3RhdGljYC4gT25lIGNvcHkgc2hhcmVkIGJ5IGV2ZXJ5IGluc3RhbmNlIG9mIHRoYXQgY2xhc3MuCi0gSW5zdGFuY2UgdmFyaWFibGVzIGFyZSBub24tYHN0YXRpY2AuIEVhY2ggaW5zdGFuY2UgZ2V0cyBpdHMgb3duIGNvcHk7IGl0J3MgcGFydCBvZiB0aGF0IG9iamVjdCdzIHN0YXRlLiAoQWNjZXNzIG1vZGlmaWVyIGlzIGEgc2VwYXJhdGUsIGluZGVwZW5kZW50IGNob2ljZSDigJQgYHByaXZhdGVgIGlzIGp1c3QgdGhlIHVzdWFsIGNvbnZlbnRpb24gZm9yIGVuY2Fwc3VsYXRpb24sIG5vdCB3aGF0IG1ha2VzIGl0IGFuIGluc3RhbmNlIHZhcmlhYmxlLikKCgojIyBDb25zdHJ1Y3RvcnMKCi0gU3BlY2lhbCBtZXRob2RzIHVzZWQgdG8gY3JlYXRlIGFuIGluc3RhbmNlIG9mIGEgY2xhc3MKLSBTYW1lIG5hbWUgYXMgdGhlIGNsYXNzLCBubyByZXR1cm4gdHlwZSAobm90IGV2ZW4gYHZvaWRgKQotIElmIHlvdSBkb24ndCB3cml0ZSBvbmUsIHRoZSBjb21waWxlciBnZW5lcmF0ZXMgYSBuby1hcmcgZGVmYXVsdCBjb25zdHJ1Y3RvciAKLSBDYW4gYmUgb3ZlcmxvYWRlZCAobXVsdGlwbGUgY29uc3RydWN0b3JzLCBkaWZmZXJlbnQgcGFyYW1ldGVyIGxpc3RzKSB0byBzdXBwb3J0IGRpZmZlcmVudCB3YXlzIG9mIGJ1aWxkaW5nIHRoZSBvYmplY3QKCiMjIFZvbGF0aWxlIEtleXdvcmQKCi0gRXZlcnkgcmVhZC93cml0ZSBnb2VzIHN0cmFpZ2h0IHRvIG1haW4gbWVtb3J5IGluc3RlYWQgb2YgYSB0aHJlYWQtbG9jYWwgQ1BVIGNhY2hlLCBzbyBhIHdyaXRlIG9uIG9uZSB0aHJlYWQgaXMgaW1tZWRpYXRlbHkgdmlzaWJsZSB0byByZWFkcyBvbiBvdGhlciB0aHJlYWRzLgotIEl0IG9ubHkgZ3VhcmFudGVlcyAqKnZpc2liaWxpdHkqKiwgbm90ICoqYXRvbWljaXR5KiouIGBjb3VudCsrYCBvbiBhIGB2b2xhdGlsZSBpbnRgIGlzIHN0aWxsIHJlYWQtbW9kaWZ5LXdyaXRlIOKAlCB0d28gdGhyZWFkcyBjYW4gaW50ZXJsZWF2ZSBhbmQgbG9zZSBhbiB1cGRhdGUuIEZvciB0aGF0IHlvdSBuZWVkIGBzeW5jaHJvbml6ZWRgIG9yIGBBdG9taWNJbnRlZ2VyYCwgbm90IGB2b2xhdGlsZWAuCgojIyBJL08gUGFja2FnZXMKCi0gUGVyZm9ybSBJbnB1dCBvdXRwdXQgb3BlcmF0aW9ucyAocmVhZC93cml0ZSkKLSBCdWZmZXJlZCBzdHJlYW1zIHJlZHVjZSB0aGUgbnVtYmVyIG9mIG9wZXJhdGlvbiB0byBpbnRlcmFjdCB3aXRoIGRldmljZXMK</script>
+<script>
+  const b64 = document.getElementById("md-source").textContent.trim();
+  const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+  const md = new TextDecoder("utf-8").decode(bytes);
+  document.getElementById("content").innerHTML = marked.parse(md);
+</script>
+
+</body>
+</html>

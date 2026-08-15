@@ -61,5 +61,10 @@ to a beginner in a few minutes, even if there's a senior-level angle
   check (two-pointer, O(1) space), picked from `practice` Day1 (already
   implemented). Static site scaffolded: `index.html`, `build.py`,
   `_template.html` — open `web/index.html` directly, no server needed.
-- **Day 1+**: not started. Next unimplemented item in `EXERCISES.md` is
+- **Day 1** (2026-08-15): `web/day-1/concepts.md` — main method anatomy,
+  string pool, access modifiers, primitive/wrapper/non-primitive data
+  types, class vs instance variables, constructors, volatile, I/O
+  packages. `web/day-1/exercise.md` — prime check (trial division up to
+  `sqrt(n)`), picked from `practice` Day1 (already implemented).
+- **Day 2+**: not started. Next unimplemented item in `EXERCISES.md` is
   "Validate a BST" (Day 5 of the sprint).
