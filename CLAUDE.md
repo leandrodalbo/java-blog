@@ -66,5 +66,13 @@ to a beginner in a few minutes, even if there's a senior-level angle
   types, class vs instance variables, constructors, volatile, I/O
   packages. `web/day-1/exercise.md` — prime check (trial division up to
   `sqrt(n)`), picked from `practice` Day1 (already implemented).
-- **Day 2+**: not started. Next unimplemented item in `EXERCISES.md` is
+- **Day 2** (2026-08-16): `web/day-2/concepts.md` — OOP pillars (objects,
+  classes, abstraction, encapsulation, inheritance, polymorphism), a UML
+  class diagram (`Shape`/`Circle`/`Rectangle`) tying all four pillars
+  together, covariant return types, abstract class vs interface.
+  `web/day-2/exercise.md` — GCD (Euclidean algorithm by subtraction) and
+  LCM, picked from `practice` Day1 (already implemented); includes a
+  subtraction-vs-modulo complexity comparison and the overflow gotcha in
+  `lcm`.
+- **Day 3+**: not started. Next unimplemented item in `EXERCISES.md` is
   "Validate a BST" (Day 5 of the sprint).

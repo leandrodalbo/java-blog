@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GCD & LCM · Java, One Concept at a Time</title>
+<script src="../theme.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script src="../tailwind.config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* keep ASCII/box-drawing diagrams intact: no wrapping, scroll if too wide */
+  .prose pre { white-space: pre; overflow-x: auto; }
+</style>
+</head>
+<body class="font-sans bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200 min-h-screen">
+
+<header class="border-b border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 py-6 flex items-center justify-between">
+    <a href="../index.html" class="text-sm font-medium text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300">← Java, One Concept at a Time</a>
+    <button
+      onclick="toggleTheme()"
+      aria-label="Toggle dark mode"
+      title="Toggle dark mode"
+      class="shrink-0 rounded-full border border-stone-200 bg-white p-2 text-base leading-none hover:border-amber-300 dark:border-stone-700 dark:bg-stone-800 dark:hover:border-amber-500"
+    >
+      <span class="dark:hidden">🌙</span>
+      <span class="hidden dark:inline">☀️</span>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 sm:px-8 py-10">
+  <article
+    id="content"
+    class="prose prose-lg prose-stone dark:prose-invert max-w-none font-serif
+           prose-headings:font-sans prose-headings:font-semibold
+           prose-code:font-mono prose-pre:font-mono
+           prose-a:text-amber-700 dark:prose-a:text-amber-400"
+  ></article>
+</main>
+
+<!-- Markdown source, base64-encoded so it ships inline with no fetch() of a
+     separate file — that's what breaks when this page is opened via file://. -->
+<script id="md-source" type="text/plain">IyBHQ0QgJiBMQ00KClRoZSBFdWNsaWRlYW4gYWxnb3JpdGhtIOKAlCBvbmUgb2YgdGhlIG9sZGVzdCBhbGdvcml0aG1zIHN0aWxsIGluIGV2ZXJ5ZGF5CnVzZSAoRXVjbGlkJ3MgKkVsZW1lbnRzKiwgfjMwMCBCQykg4oCUIGFuZCB0aGUgTENNIGlkZW50aXR5IHRoYXQgcmlkZXMgb24KdG9wIG9mIGl0LgoKIyMgUHJvYmxlbQoKV3JpdGUgYG1jZChpbnQgYSwgaW50IGIpYDogcmV0dXJuIHRoZSBncmVhdGVzdCBjb21tb24gZGl2aXNvciBvZiBgYWAgYW5kCmBiYCAodGhlIGxhcmdlc3QgbnVtYmVyIHRoYXQgZGl2aWRlcyBib3RoIGV2ZW5seSkuCgpgYGAKbWNkKDEyLCA4KSAgLT4gNAptY2QoMTIsIDE4KSAtPiA2Cm1jZCgzNiwgNDgpIC0+IDEyCmBgYAoKV3JpdGUgYGxjbShpbnQgYSwgaW50IGIpYDogcmV0dXJuIHRoZSBsZWFzdCBjb21tb24gbXVsdGlwbGUgb2YgYGFgIGFuZApgYmAgKHRoZSBzbWFsbGVzdCBudW1iZXIgYm90aCBkaXZpZGUgZXZlbmx5IGludG8pLgoKYGBgCmxjbSg0LCA2KSAgIC0+IDEyCmxjbSg1LCA3KSAgIC0+IDM1CmxjbSgxNSwgMjApIC0+IDYwCmBgYAoKIyMgVGVzdHMgKFJFRCkKCmBgYGphdmEKQFRlc3QKcHVibGljIHZvaWQgc2hvdWxkQ2hlY2tHQ0QoKSB7CiAgICBEYXkxIGQxID0gbmV3IERheTEoKTsKICAgIGFzc2VydFRoYXQoZDEubWNkKDEyLCA4KSkuaXNFcXVhbFRvKDQpOwogICAgYXNzZXJ0VGhhdChkMS5tY2QoMTIsIDE4KSkuaXNFcXVhbFRvKDYpOwogICAgYXNzZXJ0VGhhdChkMS5tY2QoMzYsIDQ4KSkuaXNFcXVhbFRvKDEyKTsKfQoKQFRlc3QKcHVibGljIHZvaWQgc2hvdWxkQ2hlY2tMQ00oKSB7CiAgICBEYXkxIGQxID0gbmV3IERheTEoKTsKICAgIGFzc2VydFRoYXQoZDEubGNtKDQsIDYpKS5pc0VxdWFsVG8oMTIpOwogICAgYXNzZXJ0VGhhdChkMS5sY20oNSwgNykpLmlzRXF1YWxUbygzNSk7CiAgICBhc3NlcnRUaGF0KGQxLmxjbSgxNSwgMjApKS5pc0VxdWFsVG8oNjApOwp9CmBgYAoKIyMgSW1wbGVtZW50YXRpb24gKEdSRUVOKQoKYGBgamF2YQovKioKICogRXVjbGlkZWFuIGFsZ29yaXRobSB1c2luZyBzdWJ0cmFjdGlvbgogKi8KcHVibGljIGludCBtY2QoaW50IGEsIGludCBiKSB7CiAgICB3aGlsZSAoYSAhPSBiKSB7CiAgICAgICAgaWYgKGEgPCBiKSB7CiAgICAgICAgICAgIGIgPSBiIC0gYTsKICAgICAgICB9IGVsc2UgewogICAgICAgICAgICBhID0gYSAtIGI7CiAgICAgICAgfQogICAgfQogICAgcmV0dXJuIGE7Cn0KCnB1YmxpYyBpbnQgbGNtKGludCBhLCBpbnQgYikgewogICAgcmV0dXJuIChhICogYikgLyBtY2QoYSwgYik7Cn0KYGBgCgojIyBXaHkgcmVwZWF0ZWQgc3VidHJhY3Rpb24gd29ya3MKClRoZSBjb3JlIGZhY3Q6IGFueSBudW1iZXIgdGhhdCBkaXZpZGVzIGJvdGggYGFgIGFuZCBgYmAgYWxzbyBkaXZpZGVzCnRoZWlyIGRpZmZlcmVuY2UuIFNvIGBnY2QoYSwgYikgPT0gZ2NkKGEgLSBiLCBiKWAgd2hlbiBgYSA+IGJgIOKAlCBzaHJpbmtpbmcKdGhlIHBhaXIgbmV2ZXIgY2hhbmdlcyB0aGUgYW5zd2VyLCBpdCBqdXN0IGdldHMgdGhlcmUgZmFzdGVyLiBLZWVwCnN1YnRyYWN0aW5nIHRoZSBzbWFsbGVyIGZyb20gdGhlIGxhcmdlciBhbmQgdGhlIHBhaXIgY29udmVyZ2VzIHVudGlsCmBhID09IGJgLCBhbmQgdGhhdCBzaGFyZWQgdmFsdWUgaXMgdGhlIEdDRC4KCmBgYAptY2QoMTIsIDgpCiAgMTIsIDggLT4gYSA+IGI6IGEgPSAxMiAtIDggPSA0CiAgNCwgOCAgLT4gYiA+IGE6IGIgPSA4IC0gNCAgPSA0CiAgNCwgNCAgLT4gZXF1YWwsIGRvbmUgLT4gNApgYGAKCiMjIFN1YnRyYWN0aW9uIHZzIG1vZHVsbyDigJQgdGhlIGNvbXBsZXhpdHkgYW5nbGUgd29ydGggbWVudGlvbmluZyBvdXQgbG91ZAoKVGhlIHZlcnNpb24gYWJvdmUgaXMgdGhlIHRleHRib29rICpzdWJ0cmFjdGl2ZSogRXVjbGlkZWFuIGFsZ29yaXRobToKZWFzeSB0byByZWFzb24gYWJvdXQsIGJ1dCBpdHMgd29yc3QgY2FzZSBpcyBgTyhtYXgoYSwgYikpYCDigJQgdGhpbmsKYG1jZCgxLCAxXzAwMF8wMDApYCwgd2hpY2ggc3VidHJhY3RzIDEgYSBtaWxsaW9uIHRpbWVzLgoKVGhlIHN0YW5kYXJkIGxpYnJhcnkgdmVyc2lvbiAoYW5kIHRoZSBvbmUgd29ydGggdXNpbmcgaW4gcHJhY3RpY2UpIHN3YXBzCnN1YnRyYWN0aW9uIGZvciBtb2R1bG86CgpgYGBqYXZhCnB1YmxpYyBpbnQgbWNkRmFzdChpbnQgYSwgaW50IGIpIHsKICAgIHJldHVybiBiID09IDAgPyBhIDogbWNkRmFzdChiLCBhICUgYik7Cn0KYGBgCgpgYSAlIGJgIGRvZXMgaW4gb25lIHN0ZXAgd2hhdCB0aGUgc3VidHJhY3RpdmUgdmVyc2lvbiBkb2VzIGluCmBhIC8gYmAgc3RlcHMsIHNvIHRoaXMgY29udmVyZ2VzIGluIGBPKGxvZyhtaW4oYSwgYikpKWAg4oCUIHRoZSBzYW1lCmNvcnJlY3RuZXNzIGFyZ3VtZW50LCBkcmFtYXRpY2FsbHkgZmV3ZXIgaXRlcmF0aW9ucy4KCiMjIExDTTogYnVpbHQgb24gR0NELCBub3QgaW5kZXBlbmRlbnQgb2YgaXQKCmBsY20oYSwgYikgPSAoYSAqIGIpIC8gZ2NkKGEsIGIpYCBmYWxscyBvdXQgb2YgYSBzaW1wbGUgaWRlbnRpdHk6CmBnY2QoYSwgYikgKiBsY20oYSwgYikgPT0gYSAqIGJgLiBJdCdzIGNoZWFwIG9uY2UgYG1jZGAgZXhpc3RzIOKAlCBubyBuZWVkCnRvIHJlLWRlcml2ZSBMQ00gZnJvbSBzY3JhdGNoLgo=</script>
+<script>
+  const b64 = document.getElementById("md-source").textContent.trim();
+  const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+  const md = new TextDecoder("utf-8").decode(bytes);
+  document.getElementById("content").innerHTML = marked.parse(md);
+</script>
+
+</body>
+</html>

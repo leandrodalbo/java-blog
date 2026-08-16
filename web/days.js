@@ -19,5 +19,15 @@ const days = [
       "title": "Prime Check",
       "src": "day-1/exercise.html"
     }
+  },
+  {
+    "day": 2,
+    "date": "2026-08-16",
+    "title": "Day 2: Object Oriented Programming",
+    "concepts": "day-2/concepts.html",
+    "exercise": {
+      "title": "GCD & LCM",
+      "src": "day-2/exercise.html"
+    }
   }
 ];
