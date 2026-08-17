@@ -2,6 +2,7 @@
 const days = [
   {
     "day": 0,
+    "label": "Day 0",
     "date": "2026-08-14",
     "title": "Day 0: How Java Actually Runs",
     "concepts": "day-0/concepts.html",
@@ -12,6 +13,7 @@ const days = [
   },
   {
     "day": 1,
+    "label": "Day 1",
     "date": "2026-08-15",
     "title": "Day 1: All Basic Concepts Together",
     "concepts": "day-1/concepts.html",
@@ -22,12 +24,35 @@ const days = [
   },
   {
     "day": 2,
+    "label": "Day 2",
     "date": "2026-08-16",
     "title": "Day 2: Object Oriented Programming",
     "concepts": "day-2/concepts.html",
     "exercise": {
       "title": "GCD & LCM",
       "src": "day-2/exercise.html"
+    }
+  },
+  {
+    "day": 2,
+    "label": "Day 2 extra",
+    "date": "2026-08-16",
+    "title": "Day 2 extra: Remaining Java Concepts",
+    "concepts": "day-2-extra/concepts.html",
+    "exercise": {
+      "title": "Factorial & Fibonacci",
+      "src": "day-2-extra/exercise.html"
+    }
+  },
+  {
+    "day": 3,
+    "label": "Day 3",
+    "date": "2026-08-17",
+    "title": "Day 3: SOLID and shiny day, also some design patterns",
+    "concepts": "day-3/concepts.html",
+    "exercise": {
+      "title": "Longest Substring Without Repeating Characters",
+      "src": "day-3/exercise.html"
     }
   }
 ];

@@ -10,6 +10,7 @@ inline, no fetch — works opened directly via file://) and regenerates
 days.js, which index.html uses to render the day list.
 """
 import base64
+import html
 import json
 import re
 from datetime import date
@@ -19,17 +20,38 @@ WEB_DIR = Path(__file__).parent
 TEMPLATE = (WEB_DIR / "_template.html").read_text()
 
 
+SITE_URL = "https://dailyjava.blog"
+
+
 def extract_title(md_text: str, fallback: str) -> str:
     match = re.search(r"^#\s+(.+)$", md_text, re.MULTILINE)
     return match.group(1).strip() if match else fallback
 
 
-def render_page(md_path: Path) -> str:
+def extract_description(md_text: str, title: str) -> str:
+    body = re.sub(r"^#\s+.+$", "", md_text, count=1, flags=re.MULTILINE)
+    for line in body.splitlines():
+        line = line.strip()
+        if not line or line.startswith("#") or line.startswith("```"):
+            continue
+        line = re.sub(r"[`*_]", "", line)
+        return (line[:157] + "...") if len(line) > 160 else line
+    return f"{title} — from Java, One Concept at a Time, a daily Java fundamentals blog by Leandro Dal Bo."
+
+
+def render_page(md_path: Path, day_dir: str) -> str:
     md_text = md_path.read_text()
     title = extract_title(md_text, md_path.stem.title())
+    description = extract_description(md_text, title)
     b64 = base64.b64encode(md_text.encode("utf-8")).decode("ascii")
-    html = TEMPLATE.replace("{{TITLE}}", title).replace("{{MD_B64}}", b64)
-    md_path.with_suffix(".html").write_text(html)
+    url = f"{SITE_URL}/{day_dir}/{md_path.stem}.html"
+    page = (
+        TEMPLATE.replace("{{TITLE}}", html.escape(title))
+        .replace("{{DESCRIPTION}}", html.escape(description))
+        .replace("{{URL}}", html.escape(url))
+        .replace("{{MD_B64}}", b64)
+    )
+    md_path.with_suffix(".html").write_text(page)
     return title
 
 
@@ -38,7 +60,9 @@ def build_index():
     for day_dir in sorted(
         WEB_DIR.glob("day-*"), key=lambda p: int(p.name.split("-")[1])
     ):
-        n = int(day_dir.name.split("-")[1])
+        parts = day_dir.name.split("-", 2)
+        n = int(parts[1])
+        label = f"Day {n}" + (f" {parts[2]}" if len(parts) > 2 else "")
         concepts_md = day_dir / "concepts.md"
         exercise_md = day_dir / "exercise.md"
         if not concepts_md.exists():
@@ -47,13 +71,14 @@ def build_index():
         entry_date = date.fromtimestamp(concepts_md.stat().st_mtime).isoformat()
         entry = {
             "day": n,
+            "label": label,
             "date": entry_date,
-            "title": render_page(concepts_md),
+            "title": render_page(concepts_md, day_dir.name),
             "concepts": f"{day_dir.name}/concepts.html",
         }
         if exercise_md.exists():
             entry["exercise"] = {
-                "title": render_page(exercise_md),
+                "title": render_page(exercise_md, day_dir.name),
                 "src": f"{day_dir.name}/exercise.html",
             }
         days.append(entry)
@@ -67,5 +92,5 @@ def build_index():
 
 if __name__ == "__main__":
     built = build_index()
-    names = ", ".join(f"day-{d['day']}" for d in built)
+    names = ", ".join(d["label"] for d in built)
     print(f"Built {len(built)} day(s): {names}")

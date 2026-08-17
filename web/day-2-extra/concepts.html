@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 2 extra: Remaining Java Concepts · Java, One Concept at a Time</title>
+<meta name="description" content="A unified set of interfaces and classes for storing and manipulating">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day 2 extra: Remaining Java Concepts · Java, One Concept at a Time">
+<meta property="og:description" content="A unified set of interfaces and classes for storing and manipulating">
+<meta property="og:url" content="https://dailyjava.blog/day-2-extra/concepts.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Day 2 extra: Remaining Java Concepts · Java, One Concept at a Time">
+<meta name="twitter:description" content="A unified set of interfaces and classes for storing and manipulating">
+<script src="../theme.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script src="../tailwind.config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* keep ASCII/box-drawing diagrams intact: no wrapping, scroll if too wide */
+  .prose pre { white-space: pre; overflow-x: auto; }
+</style>
+</head>
+<body class="font-sans bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200 min-h-screen">
+
+<header class="border-b border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 py-6 flex items-center justify-between">
+    <a href="../index.html" class="text-sm font-medium text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300">← Java, One Concept at a Time</a>
+    <button
+      onclick="toggleTheme()"
+      aria-label="Toggle dark mode"
+      title="Toggle dark mode"
+      class="shrink-0 rounded-full border border-stone-200 bg-white p-2 text-base leading-none hover:border-amber-300 dark:border-stone-700 dark:bg-stone-800 dark:hover:border-amber-500"
+    >
+      <span class="dark:hidden">🌙</span>
+      <span class="hidden dark:inline">☀️</span>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 sm:px-8 py-10">
+  <article
+    id="content"
+    class="prose prose-lg prose-stone dark:prose-invert max-w-none font-serif
+           prose-headings:font-sans prose-headings:font-semibold
+           prose-code:font-mono prose-pre:font-mono
+           prose-a:text-amber-700 dark:prose-a:text-amber-400"
+  ></article>
+</main>
+
+<!-- Markdown source, base64-encoded so it ships inline with no fetch() of a
+     separate file — that's what breaks when this page is opened via file://. -->
+<script id="md-source" type="text/plain">IyBEYXkgMiBleHRyYTogUmVtYWluaW5nIEphdmEgQ29uY2VwdHMKCiMjIEphdmEgQ29sbGVjdGlvbnMgRnJhbWV3b3JrCgpBIHVuaWZpZWQgc2V0IG9mIGludGVyZmFjZXMgYW5kIGNsYXNzZXMgZm9yIHN0b3JpbmcgYW5kIG1hbmlwdWxhdGluZwpncm91cHMgb2Ygb2JqZWN0cy4KCgpgYGAKICAgICAgICAgICAgICAgIEl0ZXJhYmxlCiAgICAgICAgICAgICAgICAgICAg4pazCiAgICAgICAgICAgICAgICAgICAgfAogICAgICAgICAgICAgICAgQ29sbGVjdGlvbgogICAgICAgIOKUjOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUvOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUkAogICAgICAgIHwgICAgICAgICAgIHwgICAgICAgICAgIHwKICAgICAgIExpc3QgICAgICAgIFNldCAgICAgICAgUXVldWUKICAgICAgICB8ICAgICAgICAgICB8ICAgICAgICAgICB8CiAgIEFycmF5TGlzdCAgICBIYXNoU2V0ICAgIFByaW9yaXR5UXVldWUKICAgTGlua2VkTGlzdCAgIFRyZWVTZXQgICAgTGlua2VkTGlzdCAoYWxzbyBhIERlcXVlKQpgYGAKCmBNYXBgIGlzICoqbm90KiogYSBgQ29sbGVjdGlvbmAg4oCUIGl0IHN0b3JlcyBrZXktdmFsdWUgcGFpcnMsIG5vdCBhCnNlcXVlbmNlIG9mIHNpbmdsZSBlbGVtZW50cywgc28gaXQgc2l0cyBpbiBpdHMgb3duIGJyYW5jaCBvZiB0aGUKaGllcmFyY2h5IHdpdGggYEhhc2hNYXBgLCBgTGlua2VkSGFzaE1hcGAsIGBUcmVlTWFwYC4KCi0gKipMaXN0Kiog4oCUIGFsbG93cyBkdXBsaWNhdGVzLCBpbmRleGFibGUuIGBBcnJheUxpc3RgIGlzCiAgYmFja2VkIGJ5IGEgcmVzaXphYmxlIGFycmF5IChPKDEpIGdldCBieSBpbmRleCwgTyhuKSBpbnNlcnQvcmVtb3ZlIGluCiAgdGhlIG1pZGRsZSkuIGBMaW5rZWRMaXN0YCBpcyBhIGRvdWJseSBsaW5rZWQgbGlzdCAoTygxKSBpbnNlcnQvcmVtb3ZlCiAgYXQgdGhlIGVuZHMsIE8obikgZ2V0IGJ5IGluZGV4KS4KLSAqKlNldCoqIOKAlCBubyBkdXBsaWNhdGVzLiBgSGFzaFNldGAgKG5vIG9yZGVyIGd1YXJhbnRlZSwgTygxKSBhdmVyYWdlCiAgYWRkL2NvbnRhaW5zIHZpYSBoYXNoaW5nKSwgYExpbmtlZEhhc2hTZXRgIChwcmVzZXJ2ZXMgaW5zZXJ0aW9uCiAgb3JkZXIpLCBgVHJlZVNldGAgKHNvcnRlZCwgTyhsb2cgbikgb3BlcmF0aW9ucywgYmFja2VkIGJ5IGEgcmVkLWJsYWNrCiAgdHJlZSkuCi0gKipRdWV1ZSoqIOKAlCBGSUZPIGJ5IGRlZmF1bHQgKGBMaW5rZWRMaXN0YCB1c2VkIGFzIGEgYFF1ZXVlYCkuCiAgYFByaW9yaXR5UXVldWVgIGlzIHRoZSBleGNlcHRpb246IGVsZW1lbnRzIGNvbWUgb3V0IGluIHByaW9yaXR5CiAgb3JkZXIsIG5vdCBpbnNlcnRpb24gb3JkZXIsIHNvIGl0J3MgYSBtaW4taGVhcCB1bmRlciB0aGUgaG9vZCwgbm90IGEKICBGSUZPIHN0cnVjdHVyZS4KLSAqKk1hcCoqIOKAlCBrZXktdmFsdWUgcGFpcnMsIGtleXMgdW5pcXVlLiBTYW1lIGBIYXNoYC9gTGlua2VkSGFzaGAvYFRyZWVgCiAgc3BsaXQgYXMgYFNldGAgKGEgYEhhc2hTZXRgIGlzLCBpbiBmYWN0LCBpbXBsZW1lbnRlZCBhcyBhIGBIYXNoTWFwYAogIHVuZGVyIHRoZSBob29kIHdpdGggZHVtbXkgdmFsdWVzKS4KLSAqKkl0ZXJhdG9yKiog4oCUIHRoZSBjb250cmFjdCBldmVyeSBgQ29sbGVjdGlvbmAgaW1wbGVtZW50cyB0byBiZSB3YWxrZWQKICBlbGVtZW50IGJ5IGVsZW1lbnQgd2l0aG91dCBleHBvc2luZyBpdHMgaW50ZXJuYWwgc3RydWN0dXJlOgoKYGBgamF2YQpJdGVyYXRvcjxTdHJpbmc+IGl0ID0gbGlzdC5pdGVyYXRvcigpOwp3aGlsZSAoaXQuaGFzTmV4dCgpKSB7CiAgICBTdHJpbmcgdmFsdWUgPSBpdC5uZXh0KCk7CiAgICBpZiAoc2hvdWxkUmVtb3ZlKHZhbHVlKSkgewogICAgICAgIGl0LnJlbW92ZSgpOyAvLyBzYWZlIHJlbW92YWwgZHVyaW5nIGl0ZXJhdGlvbgogICAgfQp9CmBgYAoKIyMgRW51bXMKCkEgdHlwZS1zYWZlIHdheSB0byByZXByZXNlbnQgYSBmaXhlZCBzZXQgb2YgY29uc3RhbnRzIOKAlCBpbnN0ZWFkIG9mCmBpbnRgIG9yIGBTdHJpbmdgIGNvbnN0YW50cyAod2hpY2ggdGhlIGNvbXBpbGVyIGNhbid0IHZhbGlkYXRlKSwgYW4KYGVudW1gIGdpdmVzIHlvdSBhIGNsb3NlZCBzZXQgb2YgdmFsdWVzIHRoZSBjb21waWxlciAqZG9lcyogY2hlY2suCgpgYGBqYXZhCnB1YmxpYyBlbnVtIERheSB7CiAgICBNT05EQVksIFRVRVNEQVksIFdFRE5FU0RBWSwgVEhVUlNEQVksIEZSSURBWSwgU0FUVVJEQVksIFNVTkRBWTsKCiAgICBwdWJsaWMgYm9vbGVhbiBpc1dlZWtlbmQoKSB7CiAgICAgICAgcmV0dXJuIHRoaXMgPT0gU0FUVVJEQVkgfHwgdGhpcyA9PSBTVU5EQVk7CiAgICB9Cn0KYGBgCgpFYWNoIGNvbnN0YW50IGlzIGEgc2luZ2xldG9uIGluc3RhbmNlIG9mIHRoZSBlbnVtIHR5cGUsIHNvIGBlbnVtYAp2YWx1ZXMgY2FuIGNhcnJ5IGZpZWxkcywgY29uc3RydWN0b3JzLCBhbmQgbWV0aG9kcyDigJQgbm90IGp1c3QgbmFtZXMuCkEgYHN3aXRjaGAgb3ZlciBhbiBlbnVtIGxldHMgdGhlIGNvbXBpbGVyIHdhcm4gd2hlbiBhIGNhc2UgaXMgbWlzc2luZywKc29tZXRoaW5nIHBsYWluIGBpbnRgL2BTdHJpbmdgIGNvbnN0YW50cyBjYW4gbmV2ZXIgZ2l2ZSB5b3UuCgojIyBFeGNlcHRpb25zCgpBbiBldmVudCB0aGF0IGludGVycnVwdHMgYSBwcm9ncmFtJ3Mgbm9ybWFsIGV4ZWN1dGlvbi4gSXQgY2FuIGJlCmhhbmRsZWQgd2hlcmUgaXQgb2NjdXJzLCBvciBwcm9wYWdhdGVkIHVwIHRoZSBjYWxsIHN0YWNrIGZvciBhIGNhbGxlcgp0byBoYW5kbGUuCgp8IENhdGVnb3J5ICAgICAgfCBXaGVuIGl0J3Mga25vd24gICAgICAgICAgICAgICB8IEV4YW1wbGVzICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCBNdXN0IGJlIGRlY2xhcmVkL2NhdWdodD8gfAp8LS0tLS0tLS0tLS0tLS0tLXwtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tfC0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS18LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLXwKfCAqKkNoZWNrZWQqKiAgICB8IENvbXBpbGUgdGltZSAgICAgICAgICAgICAgICAgIHwgYElPRXhjZXB0aW9uYCwgYFNRTEV4Y2VwdGlvbmAgICAgICAgICAgICAgICAgfCBZZXMg4oCUIGB0aHJvd3NgIG9yIGB0cnkvY2F0Y2hgLCBlbmZvcmNlZCBieSB0aGUgY29tcGlsZXIgfAp8ICoqVW5jaGVja2VkKiogIHwgUnVudGltZSAgICAgICAgICAgICAgICAgICAgICAgfCBgTnVsbFBvaW50ZXJFeGNlcHRpb25gLCBgQXJyYXlJbmRleE91dE9mQm91bmRzRXhjZXB0aW9uYCB8IE5vIOKAlCBleHRlbmRzIGBSdW50aW1lRXhjZXB0aW9uYCwgY29tcGlsZXIgZG9lc24ndCBlbmZvcmNlIGhhbmRsaW5nIHwKfCAqKkVycm9yKiogICAgICB8IFJ1bnRpbWUsIHVzdWFsbHkgdW5yZWNvdmVyYWJsZSB8IGBPdXRPZk1lbW9yeUVycm9yYCwgYFN0YWNrT3ZlcmZsb3dFcnJvcmAgICAgIHwgTm8g4oCUIG5vdCBtZWFudCB0byBiZSBjYXVnaHQsIHRoZSBwcm9ncmFtIGdlbmVyYWxseSBjYW4ndCByZWNvdmVyIHwKCmBgYGphdmEKdHJ5IHsKICAgIHJpc2t5T3BlcmF0aW9uKCk7Cn0gY2F0Y2ggKElPRXhjZXB0aW9uIGUpIHsKICAgIC8vIGhhbmRsZSBvciB3cmFwIGFuZCByZXRocm93Cn0gZmluYWxseSB7CiAgICAvLyBhbHdheXMgcnVucywgZXZlbiBpZiBhIHJldHVybiBoYXBwZW5zIGFib3ZlCn0KYGBgCgpgQ2hlY2tlZGAgdnMgYFVuY2hlY2tlZGAgaXMgYSBkZXNpZ24gY2hvaWNlIGFib3V0IHRoZSBleGNlcHRpb24gY2xhc3MKaXRzZWxmIChkb2VzIGl0IGV4dGVuZCBgRXhjZXB0aW9uYCBvciBgUnVudGltZUV4Y2VwdGlvbmApLCBub3QgYWJvdXQKdGhlIHNpdHVhdGlvbiB0aGF0IGNhdXNlZCBpdCDigJQgdGhhdCdzIHdoeSB0aGUgY29tcGlsZXIgY2FuIGVuZm9yY2UKY2hlY2tlZCBleGNlcHRpb25zIGJ1dCBub3QgdW5jaGVja2VkIG9uZXMuCgojIyBHYXJiYWdlIENvbGxlY3Rpb24KClRoZSBKVk0gYXV0b21hdGljYWxseSByZWNsYWltcyBoZWFwIG1lbW9yeSBvY2N1cGllZCBieSBvYmplY3RzIHRoYXQgbm8KbG9uZ2VyIGhhdmUgYW55IHJlYWNoYWJsZSByZWZlcmVuY2Ug4oCUIG5vIG1hbnVhbCBgZnJlZSgpYCBsaWtlIGluIEMuCgotIEFuIG9iamVjdCBiZWNvbWVzIGVsaWdpYmxlIGZvciBjb2xsZWN0aW9uIG9uY2Ugbm90aGluZyByZWFjaGFibGUKICBmcm9tIGEgR0Mgcm9vdCAobG9jYWwgdmFyaWFibGVzIG9uIHRoZSBzdGFjaywgc3RhdGljIGZpZWxkcywgYWN0aXZlCiAgdGhyZWFkcykgcG9pbnRzIHRvIGl0LCBkaXJlY3RseSBvciB0cmFuc2l0aXZlbHkuCi0gQ29sbGVjdGlvbiBydW5zIG9uIGEgKipkYWVtb24gdGhyZWFkKio6IGEgYmFja2dyb3VuZCB0aHJlYWQgdGhhdAogIGRvZXNuJ3Qga2VlcCB0aGUgSlZNIGFsaXZlIGJ5IGl0c2VsZiwgc28gdGhlIHByb2dyYW0gY2FuIHN0aWxsIGV4aXQKICBub3JtYWxseSBldmVuIHdoaWxlIEdDIGlzIHJ1bm5pbmcuCi0gTW9zdCBKVk1zIHVzZSAqKmdlbmVyYXRpb25hbCoqIGNvbGxlY3Rpb246IG5ldyBvYmplY3RzIGdvIGludG8gYQogIHNtYWxsICJ5b3VuZyBnZW5lcmF0aW9uIiB0aGF0J3MgY29sbGVjdGVkIGZyZXF1ZW50bHkgYW5kIGNoZWFwbHkKICAobW9zdCBvYmplY3RzIGRpZSB5b3VuZyk7IG9iamVjdHMgdGhhdCBzdXJ2aXZlIHNldmVyYWwgY29sbGVjdGlvbnMKICBnZXQgcHJvbW90ZWQgdG8gdGhlICJvbGQgZ2VuZXJhdGlvbiwiIGNvbGxlY3RlZCBsZXNzIG9mdGVuLiBUaGlzCiAgc3BsaXQgaXMgd2h5IEdDIGlzIHVzdWFsbHkgZmFzdCBpbiBwcmFjdGljZSBkZXNwaXRlIHNjYW5uaW5nIGEgbGFyZ2UKICBoZWFwIOKAlCBtb3N0IG9mIHRoZSBoZWFwIGlzIHJhcmVseSB0b3VjaGVkLgo=</script>
+<script>
+  const b64 = document.getElementById("md-source").textContent.trim();
+  const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+  const md = new TextDecoder("utf-8").decode(bytes);
+  document.getElementById("content").innerHTML = marked.parse(md);
+</script>
+
+</body>
+</html>

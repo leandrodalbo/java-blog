@@ -1,0 +1,8 @@
+# Always revalidate with the server instead of trusting a stale cached
+# copy — this is a small, frequently-updated static blog, so freshness
+# matters more than shaving off a conditional-GET round trip.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|js)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>

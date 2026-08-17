@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Longest Substring Without Repeating Characters · Java, One Concept at a Time</title>
+<meta name="description" content="A sliding-window problem.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Longest Substring Without Repeating Characters · Java, One Concept at a Time">
+<meta property="og:description" content="A sliding-window problem.">
+<meta property="og:url" content="https://dailyjava.blog/day-3/exercise.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Longest Substring Without Repeating Characters · Java, One Concept at a Time">
+<meta name="twitter:description" content="A sliding-window problem.">
+<script src="../theme.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script src="../tailwind.config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* keep ASCII/box-drawing diagrams intact: no wrapping, scroll if too wide */
+  .prose pre { white-space: pre; overflow-x: auto; }
+</style>
+</head>
+<body class="font-sans bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200 min-h-screen">
+
+<header class="border-b border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 py-6 flex items-center justify-between">
+    <a href="../index.html" class="text-sm font-medium text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300">← Java, One Concept at a Time</a>
+    <button
+      onclick="toggleTheme()"
+      aria-label="Toggle dark mode"
+      title="Toggle dark mode"
+      class="shrink-0 rounded-full border border-stone-200 bg-white p-2 text-base leading-none hover:border-amber-300 dark:border-stone-700 dark:bg-stone-800 dark:hover:border-amber-500"
+    >
+      <span class="dark:hidden">🌙</span>
+      <span class="hidden dark:inline">☀️</span>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 sm:px-8 py-10">
+  <article
+    id="content"
+    class="prose prose-lg prose-stone dark:prose-invert max-w-none font-serif
+           prose-headings:font-sans prose-headings:font-semibold
+           prose-code:font-mono prose-pre:font-mono
+           prose-a:text-amber-700 dark:prose-a:text-amber-400"
+  ></article>
+</main>
+
+<!-- Markdown source, base64-encoded so it ships inline with no fetch() of a
+     separate file — that's what breaks when this page is opened via file://. -->
+<script id="md-source" type="text/plain">IyBMb25nZXN0IFN1YnN0cmluZyBXaXRob3V0IFJlcGVhdGluZyBDaGFyYWN0ZXJzCgpBIHNsaWRpbmctd2luZG93IHByb2JsZW0uIAoKIyMgUHJvYmxlbQoKV3JpdGUgYGxvbmdlc3RTdWJzdHJpbmcoU3RyaW5nIGlucHV0KWA6IHJldHVybiB0aGUgbGVuZ3RoIG9mIHRoZSBsb25nZXN0CnN1YnN0cmluZyB0aGF0IGhhcyBubyByZXBlYXRlZCBjaGFyYWN0ZXJzLgoKYGBgCiJhYmNhYmNiYiIgLT4gImFiYyIgIC0+IDMKImJiYmJiIiAgICAtPiAiYiIgICAgLT4gMQoicHd3a2V3IiAgIC0+ICJ3a2UiICAtPiAzCmBgYAoKIyMgVGVzdHMgKFJFRCkKCmBgYGphdmEKQFRlc3QKcHVibGljIHZvaWQgc2hvdWxkRmluZExvbmdlc3RTdWJzdHJpbmdXaXRob3V0UmVwZWF0cygpIHsKICAgIERheTMgZDMgPSBuZXcgRGF5MygpOwoKICAgIGFzc2VydFRoYXQoZDMubG9uZ2VzdFN1YnN0cmluZygiYWJjYWJjYmIiKSkuaXNFcXVhbFRvKDMpOwogICAgYXNzZXJ0VGhhdChkMy5sb25nZXN0U3Vic3RyaW5nKCJiYmJiYiIpKS5pc0VxdWFsVG8oMSk7CiAgICBhc3NlcnRUaGF0KGQzLmxvbmdlc3RTdWJzdHJpbmcoInB3d2tldyIpKS5pc0VxdWFsVG8oMyk7CiAgICBhc3NlcnRUaGF0KGQzLmxvbmdlc3RTdWJzdHJpbmcoIiIpKS5pc0VxdWFsVG8oMCk7Cn0KYGBgCgojIyBJbXBsZW1lbnRhdGlvbiAoR1JFRU4pCgpgYGBqYXZhCi8qCiAgICBzbGlkaW5nIHdpbmRvdyAvIHR3by1wb2ludGVyIHRlY2huaXF1ZQogICAgVGhlIGN1cnJlbnQgd2luZG93IG11c3QgY29udGFpbiBvbmx5IHVuaXF1ZSBjaGFyYWN0ZXJzLgoKICAgIE8oTiArIE4pID0gTygyTikgPT4gTyhOKQoqLwpwdWJsaWMgaW50IGxvbmdlc3RTdWJzdHJpbmcoU3RyaW5nIGlucHV0KSB7CiAgICBTZXQ8Q2hhcmFjdGVyPiBjaGFyYWN0ZXJzID0gbmV3IEhhc2hTZXQ8PigpOwoKICAgIGludCBsZWZ0ID0gMDsKICAgIGludCBtYXggPSAwOwoKICAgIGZvciAoaW50IHJpZ2h0ID0gMDsgcmlnaHQgPCBpbnB1dC5sZW5ndGgoKTsgcmlnaHQrKykgewoKICAgICAgICB3aGlsZSAoY2hhcmFjdGVycy5jb250YWlucyhpbnB1dC5jaGFyQXQocmlnaHQpKSkgewogICAgICAgICAgICBjaGFyYWN0ZXJzLnJlbW92ZShpbnB1dC5jaGFyQXQobGVmdCkpOwogICAgICAgICAgICBsZWZ0Kys7CiAgICAgICAgfQoKICAgICAgICBjaGFyYWN0ZXJzLmFkZChpbnB1dC5jaGFyQXQocmlnaHQpKTsKICAgICAgICBtYXggPSBNYXRoLm1heChtYXgsIHJpZ2h0IC0gbGVmdCArIDEpOwogICAgfQoKICAgIHJldHVybiBtYXg7Cn0KYGBgCgojIyBXaHkgYSB3aW5kb3csIG5vdCBicnV0ZSBmb3JjZQoKVGhlIGJydXRlLWZvcmNlIGFwcHJvYWNoIGNoZWNrcyBldmVyeSBzdWJzdHJpbmcgZm9yIHVuaXF1ZW5lc3Mg4oCUCk8obsKzKSAoTyhuwrIpIHN1YnN0cmluZ3MsIE8obikgZWFjaCB0byB2ZXJpZnkpLiBUaGUgc2xpZGluZyB3aW5kb3cgZ2V0cwp0byBPKG4pIGJ5IG5ldmVyIHJlLWV4YW1pbmluZyBhIGNoYXJhY3RlciBpdCBkb2Vzbid0IGhhdmUgdG86CgotIGByaWdodGAgd2Fsa3MgZm9yd2FyZCBvbmNlLCBhbHdheXMgZXhwYW5kaW5nIHRoZSB3aW5kb3cgYnkgb25lCiAgY2hhcmFjdGVyIHBlciBzdGVwLgotIGBsZWZ0YCBvbmx5IG1vdmVzIGZvcndhcmQgdG9vIOKAlCB3aGVuIHRoZSBjaGFyYWN0ZXIgYXQgYHJpZ2h0YCBpcwogIGFscmVhZHkgaW4gdGhlIHdpbmRvdywgYGxlZnRgIGFkdmFuY2VzIChzaHJpbmtpbmcgZnJvbSB0aGUgbGVmdCkKICB1bnRpbCB0aGUgZHVwbGljYXRlIGlzIGdvbmUuCi0gQmVjYXVzZSBib3RoIHBvaW50ZXJzIG9ubHkgbW92ZSBmb3J3YXJkIGFuZCBlYWNoIHZpc2l0cyBldmVyeSBpbmRleAogIGF0IG1vc3Qgb25jZSwgdGhlIHdob2xlIHNjYW4gaXMgTygybikg4oaSIE8obiksIG5vdCBPKG4pIHdvcmsgcmVwZWF0ZWQKICBwZXIgc3RhcnRpbmcgcG9pbnQuCgpUaGUgYFNldDxDaGFyYWN0ZXI+YCBtaXJyb3JzIGV4YWN0bHkgd2hhdCdzIGluc2lkZSB0aGUgY3VycmVudCB3aW5kb3csCnNvICJkb2VzIHRoZSB3aW5kb3cgYWxyZWFkeSBjb250YWluIHRoaXMgY2hhcmFjdGVyIiBpcyBhbiBPKDEpIGNoZWNrCmluc3RlYWQgb2YgcmUtc2Nhbm5pbmcgdGhlIHdpbmRvdyBpdHNlbGYuCg==</script>
+<script>
+  const b64 = document.getElementById("md-source").textContent.trim();
+  const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+  const md = new TextDecoder("utf-8").decode(bytes);
+  document.getElementById("content").innerHTML = marked.parse(md);
+</script>
+
+</body>
+</html>

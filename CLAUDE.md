@@ -74,5 +74,12 @@ to a beginner in a few minutes, even if there's a senior-level angle
   LCM, picked from `practice` Day1 (already implemented); includes a
   subtraction-vs-modulo complexity comparison and the overflow gotcha in
   `lcm`.
-- **Day 3+**: not started. Next unimplemented item in `EXERCISES.md` is
+- **Day 3** (2026-08-17): `web/day-3/concepts.md` — SOLID (code example per
+  principle, including the classic `Square extends Rectangle` LSP
+  violation) and design patterns (State, Strategy, Proxy, Decorator,
+  Facade, Factory, Builder; code examples for Strategy and Decorator,
+  and the Proxy-vs-Decorator intent distinction). `web/day-3/exercise.md`
+  — longest substring without repeating characters (sliding window,
+  O(n)), picked from `practice` Day3 (already implemented).
+- **Day 4+**: not started. Next unimplemented item in `EXERCISES.md` is
   "Validate a BST" (Day 5 of the sprint).
