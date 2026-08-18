@@ -54,5 +54,16 @@ const days = [
       "title": "Longest Substring Without Repeating Characters",
       "src": "day-3/exercise.html"
     }
+  },
+  {
+    "day": 4,
+    "label": "Day 4",
+    "date": "2026-08-18",
+    "title": "Day 4: O Grande",
+    "concepts": "day-4/concepts.html",
+    "exercise": {
+      "title": "Reverse a Singly Linked List",
+      "src": "day-4/exercise.html"
+    }
   }
 ];
