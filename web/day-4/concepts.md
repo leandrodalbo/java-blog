@@ -159,4 +159,4 @@ with every extra step of `n`.
 
 Space is about the **call stack**: how many calls are waiting at once.
 `fibonacci` only goes one branch deep at a time, so at most `n` calls
-stack up. That's **O(n)** space — much less than the O(2ⁿ) total calls.
+stack up. That's **O(n)** space.

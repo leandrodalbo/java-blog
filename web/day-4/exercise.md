@@ -109,11 +109,10 @@ diverge on space:
 
 - **Iterative** — O(1) space. Three pointers, reused on every
   iteration, regardless of how long the list is.
+
 - **Recursive** — O(N) space. Every call stays on the call stack
   waiting for `reverseRecursive(head.next)` to return before it can
-  rewire its own pointers — the same "how deep does the stack go"
-  reasoning from today's Fibonacci example. A list of `n` nodes means
-  `n` stack frames open at once, right before the base case is hit.
+  rewire its own pointers.
 
 For a short list the difference doesn't matter. For a very long one,
 the recursive version risks a `StackOverflowError` where the iterative
