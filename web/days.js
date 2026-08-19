@@ -65,5 +65,16 @@ const days = [
       "title": "Reverse a Singly Linked List",
       "src": "day-4/exercise.html"
     }
+  },
+  {
+    "day": 5,
+    "label": "Day 5",
+    "date": "2026-08-19",
+    "title": "Day 5: Data Structures are important",
+    "concepts": "day-5/concepts.html",
+    "exercise": {
+      "title": "Two Sum",
+      "src": "day-5/exercise.html"
+    }
   }
 ];

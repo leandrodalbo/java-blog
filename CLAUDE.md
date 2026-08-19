@@ -81,5 +81,14 @@ to a beginner in a few minutes, even if there's a senior-level angle
   and the Proxy-vs-Decorator intent distinction). `web/day-3/exercise.md`
   — longest substring without repeating characters (sliding window,
   O(n)), picked from `practice` Day3 (already implemented).
-- **Day 4+**: not started. Next unimplemented item in `EXERCISES.md` is
+- **Day 4** (2026-08-18): `web/day-4/concepts.md` — Big O (time vs space
+  complexity, Big O/Ω/Θ), the complexity-class chart (`big-O.jpg`),
+  calculation rules (sequential adds, nested multiplies, drop constants
+  and lower-order terms), amortized time via `ArrayList` resizing, and
+  recursive complexity via the Fibonacci call tree (O(2^N) time, O(N)
+  stack space). `web/day-4/exercise.md` — reverse a singly linked list,
+  picked from `practice` Day4 (iterative already implemented); the
+  recursive version was written directly in the article for the space
+  comparison (O(1) vs O(N) call stack) rather than added to `practice`.
+- **Day 5+**: not started. Next unimplemented item in `EXERCISES.md` is
   "Validate a BST" (Day 5 of the sprint).
