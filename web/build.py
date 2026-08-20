@@ -58,7 +58,8 @@ def render_page(md_path: Path, day_dir: str) -> str:
 def build_index():
     days = []
     for day_dir in sorted(
-        WEB_DIR.glob("day-*"), key=lambda p: int(p.name.split("-")[1])
+        WEB_DIR.glob("day-*"),
+        key=lambda p: (int(p.name.split("-")[1]), p.name),
     ):
         parts = day_dir.name.split("-", 2)
         n = int(parts[1])

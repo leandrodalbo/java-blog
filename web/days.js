@@ -79,17 +79,6 @@ const days = [
   },
   {
     "day": 6,
-    "label": "Day 6 extra",
-    "date": "2026-08-20",
-    "title": "Day 6: Crazy extra bits and StringBuilder",
-    "concepts": "day-6-extra/concepts.html",
-    "exercise": {
-      "title": "Rotate an Array",
-      "src": "day-6-extra/exercise.html"
-    }
-  },
-  {
-    "day": 6,
     "label": "Day 6",
     "date": "2026-08-20",
     "title": "Day 6: Graphs and Trees",
@@ -97,6 +86,17 @@ const days = [
     "exercise": {
       "title": "Balanced Brackets",
       "src": "day-6/exercise.html"
+    }
+  },
+  {
+    "day": 6,
+    "label": "Day 6 extra",
+    "date": "2026-08-20",
+    "title": "Day 6: Crazy extra bits and StringBuilder",
+    "concepts": "day-6-extra/concepts.html",
+    "exercise": {
+      "title": "Rotate an Array",
+      "src": "day-6-extra/exercise.html"
     }
   }
 ];

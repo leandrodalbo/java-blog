@@ -90,5 +90,13 @@ to a beginner in a few minutes, even if there's a senior-level angle
   picked from `practice` Day4 (iterative already implemented); the
   recursive version was written directly in the article for the space
   comparison (O(1) vs O(N) call stack) rather than added to `practice`.
-- **Day 5+**: not started. Next unimplemented item in `EXERCISES.md` is
-  "Validate a BST" (Day 5 of the sprint).
+- **Day 5** and **Day 6**: published (`web/day-5`, `web/day-6`) but never
+  logged here — gap predates this entry, not an oversight going forward.
+- **Day 6 extra** (2026-08-20): `web/day-6-extra/concepts.md` — bit
+  manipulation (shift operators incl. `>>` vs `>>>` sign handling, AND/OR/
+  XOR/NOT truth table, bit tricks: clear/toggle/check/set a bit, find the
+  non-duplicate via XOR) and why `String +=` in a loop is O(N²) vs
+  `StringBuilder`'s O(N), with the full series-to-Big-O derivation.
+  `web/day-6-extra/exercise.md` — rotate an array in place by k (reversal
+  trick), picked from `practice` Day4 (already implemented, `rotateArray`
+  was unused in the blog until now).
