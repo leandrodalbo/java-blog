@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rotate an Array · Java, One Concept at a Time</title>
+<meta name="description" content="Write rotateArray(int[] arr, int k): rotate the array in place so the last k elements move to the front. No new array, O(1) extra space.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rotate an Array · Java, One Concept at a Time">
+<meta property="og:description" content="Write rotateArray(int[] arr, int k): rotate the array in place so the last k elements move to the front. No new array, O(1) extra space.">
+<meta property="og:url" content="https://dailyjava.blog/day-6-extra/exercise.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Rotate an Array · Java, One Concept at a Time">
+<meta name="twitter:description" content="Write rotateArray(int[] arr, int k): rotate the array in place so the last k elements move to the front. No new array, O(1) extra space.">
+<script src="../theme.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script src="../tailwind.config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* keep ASCII/box-drawing diagrams intact: no wrapping, scroll if too wide */
+  .prose pre { white-space: pre; overflow-x: auto; }
+</style>
+</head>
+<body class="font-sans bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200 min-h-screen">
+
+<header class="border-b border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 py-6 flex items-center justify-between">
+    <a href="../index.html" class="text-sm font-medium text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300">← Java, One Concept at a Time</a>
+    <button
+      onclick="toggleTheme()"
+      aria-label="Toggle dark mode"
+      title="Toggle dark mode"
+      class="shrink-0 rounded-full border border-stone-200 bg-white p-2 text-base leading-none hover:border-amber-300 dark:border-stone-700 dark:bg-stone-800 dark:hover:border-amber-500"
+    >
+      <span class="dark:hidden">🌙</span>
+      <span class="hidden dark:inline">☀️</span>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 sm:px-8 py-10">
+  <article
+    id="content"
+    class="prose prose-lg prose-stone dark:prose-invert max-w-none font-serif
+           prose-headings:font-sans prose-headings:font-semibold
+           prose-code:font-mono prose-pre:font-mono
+           prose-a:text-amber-700 dark:prose-a:text-amber-400"
+  ></article>
+</main>
+
+<!-- Markdown source, base64-encoded so it ships inline with no fetch() of a
+     separate file — that's what breaks when this page is opened via file://. -->
+<script id="md-source" type="text/plain">IyBSb3RhdGUgYW4gQXJyYXkKCiMjIFByb2JsZW0KCldyaXRlIGByb3RhdGVBcnJheShpbnRbXSBhcnIsIGludCBrKWA6IHJvdGF0ZSB0aGUgYXJyYXkgaW4gcGxhY2Ugc28gdGhlIGxhc3QgYGtgIGVsZW1lbnRzIG1vdmUgdG8gdGhlIGZyb250LiBObyBuZXcgYXJyYXksIE8oMSkgZXh0cmEgc3BhY2UuCgpgYGAKYXJyID0gWzEsIDIsIDMsIDQsIDVdLCBrID0gMgotPiBbNCwgNSwgMSwgMiwgM10KYGBgCgojIyBUZXN0cyAoUkVEKQoKYGBgamF2YQpAVGVzdApwdWJsaWMgdm9pZCBzaG91bGRSb3RhdGVLRWxlbWVudHMoKXsKICAgIGludFtdIGRhdGEgPSBuZXcgaW50W117MSwgMiwgMywgNCwgNX07CgogICAgRGF5NC5yb3RhdGVBcnJheShkYXRhLCAyKTsKCiAgICBhc3NlcnRUaGF0KGRhdGEpLmlzRXF1YWxUbyhuZXcgaW50W117NCwgNSwgMSwgMiwgM30pOwp9CmBgYAoKIyMgSW1wbGVtZW50YXRpb24gKEdSRUVOKQoKYGBgamF2YQovKioKICogcmV2ZXJzYWwgdHJpY2s6IHJldmVyc2Ugd2hvbGUgYXJyYXksIHRoZW4gcmV2ZXJzZSBbMCwgay0xXSwgdGhlbiByZXZlcnNlIFtrLCBuLTFdCiAqIGVhY2ggZWxlbWVudCBpcyB0b3VjaGVkIGEgY29uc3RhbnQgbnVtYmVyIG9mIHRpbWVzIGFjcm9zcyB0aGUgdGhyZWUgcGFzc2VzLCBpbiBwbGFjZQogKgogKiBPKG4pIHRpbWUsIE8oMSkgc3BhY2UKICovCnB1YmxpYyBzdGF0aWMgdm9pZCByb3RhdGVBcnJheShpbnRbXSBhcnIsIGludCBrKXsKICAgIHJvdGF0ZVN1YmFycmF5KGFyciwgMCwgYXJyLmxlbmd0aCAtIDEpOwogICAgcm90YXRlU3ViYXJyYXkoYXJyLCAwLCBrIC0gMSk7CiAgICByb3RhdGVTdWJhcnJheShhcnIsIGssIGFyci5sZW5ndGggLSAxKTsKfQoKcHVibGljIHN0YXRpYyB2b2lkIHJvdGF0ZVN1YmFycmF5KGludFtdIGFyciwgaW50IHN0YXJ0LCBpbnQgZW5kKXsKICAgIHdoaWxlIChzdGFydCA8IGVuZCl7CgogICAgICAgIGludCBhdXggPSBhcnJbc3RhcnRdOwogICAgICAgIGFycltzdGFydF0gPSBhcnJbZW5kXTsKICAgICAgICBhcnJbZW5kXSA9IGF1eDsKCiAgICAgICAgc3RhcnQrKzsKICAgICAgICBlbmQtLTsKICAgIH0KfQpgYGAKCiMjIFdoeSByZXZlcnNlIHRocmVlIHRpbWVzLCBub3Qgc2hpZnQgayB0aW1lcwoKVGhlIG9idmlvdXMgYXBwcm9hY2ggaXMgdG8gc2hpZnQgZXZlcnkgZWxlbWVudCByaWdodCBieSBvbmUsIGsgdGltZXMuClRoYXQncyBPKG7Ct2spLgoKUmV2ZXJzaW5nIHRoZSB3aG9sZSBhcnJheSBmaXJzdCBwdXRzIGV2ZXJ5IGVsZW1lbnQgaW4gZXhhY3RseSB0aGUgcmV2ZXJzZSBvZiB3aGVyZSBpdCBuZWVkcyB0byBlbmQgdXAuIEZyb20gdGhlcmUsIHRoZSBmcm9udCBrIGFuZCB0aGUgYmFjayBuLWsgYXJlIGVhY2ggaW50ZXJuYWxseSBiYWNrd2FyZHMsIGJ1dCBhbHJlYWR5IGluIHRoZSByaWdodCAqaGFsdmVzKi4gUmV2ZXJzaW5nIGVhY2ggaGFsZiBiYWNrIHRvIGZyb250IGZpeGVzIHRoYXQsIGFsbCBpbiBwbGFjZToKCmBgYAphcnIgPSBbMSwgMiwgMywgNCwgNV0sIGsgPSAyCgpyZXZlcnNlIGFsbDogICAgICAgIFs1LCA0LCAzLCAyLCAxXQpyZXZlcnNlIFswLCBrLTFdOiAgICBbNCwgNSwgMywgMiwgMV0gICAoZml4ZXMgdGhlIGZyb250IDIpCnJldmVyc2UgW2ssIG4tMV06ICAgIFs0LCA1LCAxLCAyLCAzXSAgIChmaXhlcyB0aGUgYmFjayAzKQpgYGAKClRocmVlIHBhc3NlcywgZWFjaCBvbmUgTyhuKSBhdCB3b3JzdCwgc28gdGhlIHRvdGFsIGlzIHN0aWxsIE8obikK</script>
+<script>
+  const b64 = document.getElementById("md-source").textContent.trim();
+  const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+  const md = new TextDecoder("utf-8").decode(bytes);
+  document.getElementById("content").innerHTML = marked.parse(md);
+</script>
+
+</body>
+</html>
