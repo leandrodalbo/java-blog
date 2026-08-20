@@ -76,5 +76,16 @@ const days = [
       "title": "Two Sum",
       "src": "day-5/exercise.html"
     }
+  },
+  {
+    "day": 6,
+    "label": "Day 6",
+    "date": "2026-08-20",
+    "title": "Day 6: Graphs and Trees",
+    "concepts": "day-6/concepts.html",
+    "exercise": {
+      "title": "Balanced Brackets",
+      "src": "day-6/exercise.html"
+    }
   }
 ];
