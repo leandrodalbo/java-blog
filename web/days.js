@@ -98,5 +98,16 @@ const days = [
       "title": "Rotate an Array",
       "src": "day-6-extra/exercise.html"
     }
+  },
+  {
+    "day": 7,
+    "label": "Day 7",
+    "date": "2026-08-21",
+    "title": "Day 7: System Design concepts",
+    "concepts": "day-7/concepts.html",
+    "exercise": {
+      "title": "Permutation Check",
+      "src": "day-7/exercise.html"
+    }
   }
 ];

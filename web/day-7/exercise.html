@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Permutation Check · Java, One Concept at a Time</title>
+<meta name="description" content="Write isApermutation(String a, String b): return true if b is a permutation of a, meaning both strings have exactly the same characters, in any order (and th...">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Permutation Check · Java, One Concept at a Time">
+<meta property="og:description" content="Write isApermutation(String a, String b): return true if b is a permutation of a, meaning both strings have exactly the same characters, in any order (and th...">
+<meta property="og:url" content="https://dailyjava.blog/day-7/exercise.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Permutation Check · Java, One Concept at a Time">
+<meta name="twitter:description" content="Write isApermutation(String a, String b): return true if b is a permutation of a, meaning both strings have exactly the same characters, in any order (and th...">
+<script src="../theme.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script src="../tailwind.config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* keep ASCII/box-drawing diagrams intact: no wrapping, scroll if too wide */
+  .prose pre { white-space: pre; overflow-x: auto; }
+</style>
+</head>
+<body class="font-sans bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200 min-h-screen">
+
+<header class="border-b border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 py-6 flex items-center justify-between">
+    <a href="../index.html" class="text-sm font-medium text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300">← Java, One Concept at a Time</a>
+    <button
+      onclick="toggleTheme()"
+      aria-label="Toggle dark mode"
+      title="Toggle dark mode"
+      class="shrink-0 rounded-full border border-stone-200 bg-white p-2 text-base leading-none hover:border-amber-300 dark:border-stone-700 dark:bg-stone-800 dark:hover:border-amber-500"
+    >
+      <span class="dark:hidden">🌙</span>
+      <span class="hidden dark:inline">☀️</span>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 sm:px-8 py-10">
+  <article
+    id="content"
+    class="prose prose-lg prose-stone dark:prose-invert max-w-none font-serif
+           prose-headings:font-sans prose-headings:font-semibold
+           prose-code:font-mono prose-pre:font-mono
+           prose-a:text-amber-700 dark:prose-a:text-amber-400"
+  ></article>
+</main>
+
+<!-- Markdown source, base64-encoded so it ships inline with no fetch() of a
+     separate file — that's what breaks when this page is opened via file://. -->
+<script id="md-source" type="text/plain">IyBQZXJtdXRhdGlvbiBDaGVjawoKIyMgUHJvYmxlbQoKV3JpdGUgYGlzQXBlcm11dGF0aW9uKFN0cmluZyBhLCBTdHJpbmcgYilgOiByZXR1cm4gYHRydWVgIGlmIGBiYCBpcyBhIHBlcm11dGF0aW9uIG9mIGBhYCwgbWVhbmluZyBib3RoIHN0cmluZ3MgaGF2ZSBleGFjdGx5IHRoZSBzYW1lIGNoYXJhY3RlcnMsIGluIGFueSBvcmRlciAoYW5kIHRoZSBzYW1lIGxlbmd0aCkuCgpgYGAKaXNBcGVybXV0YXRpb24oImFiIiwgImJhIikgLT4gdHJ1ZQppc0FwZXJtdXRhdGlvbigiYWIiLCAiYXZhIikgLT4gZmFsc2UgICAoZGlmZmVyZW50IGxlbmd0aCkKaXNBcGVybXV0YXRpb24oImFiIiwgImFhIikgLT4gZmFsc2UgICAgKHNhbWUgbGVuZ3RoLCBkaWZmZXJlbnQgY2hhcmFjdGVycykKYGBgCgojIyBUZXN0cyAoUkVEKQoKYGBgamF2YQpAVGVzdApwdWJsaWMgdm9pZCBzaG91bGRDaGVja1Blcm11dGF0aW9ucygpewogICAgRGF5MiBkYXkyID0gbmV3IERheTIoKTsKCiAgICBhc3NlcnRUaGF0KGRheTIuaXNBcGVybXV0YXRpb24oImFiIiwgImJhIikpLmlzVHJ1ZSgpOwogICAgYXNzZXJ0VGhhdChkYXkyLmlzQXBlcm11dGF0aW9uKCJhYiIsICJhdmEiKSkuaXNGYWxzZSgpOwogICAgYXNzZXJ0VGhhdChkYXkyLmlzQXBlcm11dGF0aW9uKCJhYiIsICJhYSIpKS5pc0ZhbHNlKCk7Cn0KYGBgCgojIyBJbXBsZW1lbnRhdGlvbiAoR1JFRU4pCgpgYGBqYXZhCi8qKgogKiBjb3VudCBldmVyeSBjaGFyYWN0ZXIgb2YgYSBpbnRvIGEgZml4ZWQtc2l6ZSAoMTI4LCBBU0NJSSkgKmZyZXF1ZW5jeSB0YWJsZSwgdGhlbiB3YWxrIGIgZGVjcmVtZW50aW5nIGNvdW50cy4gSWYgYSBjb3VudCAqZ29lcyBuZWdhdGl2ZSwgYiBoYXMgYSBjaGFyYWN0ZXIgYSBkb2Vzbid0IChvciBoYXMgaXQgdG9vICptYW55IHRpbWVzKSwgc28gaXQgY2FuJ3QgYmUgYSBwZXJtdXRhdGlvbi4KICoKICpPKE4pIHRpbWUsIE8oMSkgc3BhY2UgKHRoZSBmcmVxdWVuY3kgdGFibGUgaXMgY2FwcGVkIGF0IDEyOCAqcmVnYXJkbGVzcyBvZiBOKQogKi8KcHVibGljIGJvb2xlYW4gaXNBcGVybXV0YXRpb24oU3RyaW5nIGEsIFN0cmluZyBiKQp7CiAgICBpZihhLmxlbmd0aCgpICE9IGIubGVuZ3RoKCkpIHJldHVybiBmYWxzZTsKCiAgICBpbnRbXSBmcmVxQSA9IGZyZXFUYWJsZShhKTsKICAgIGNoYXJbXSBjaGFyc0IgPSBiLnRvQ2hhckFycmF5KCk7CgogICAgZm9yIChpbnQgaSA9IDA7IGkgPCBjaGFyc0IubGVuZ3RoOyBpKyspCiAgICB7CiAgICAgICAgaWYgKGZyZXFBW2NoYXJzQltpXV0gPj0gMCkgZnJlcUFbY2hhcnNCW2ldXS0tOwoKICAgICAgICBpZiAoZnJlcUFbY2hhcnNCW2ldXSA8IDApIHJldHVybiBmYWxzZTsKICAgIH0KCiAgICByZXR1cm4gdHJ1ZTsKfQpgYGAKCiMjIFdoeSBhIGZyZXF1ZW5jeSB0YWJsZSwgbm90IHNvcnRpbmcKClRoZSBvYnZpb3VzIGFwcHJvYWNoIGlzIHRvIHNvcnQgYm90aCBzdHJpbmdzIGFuZCBjb21wYXJlIHRoZW0gY2hhcmFjdGVyIGJ5IGNoYXJhY3Rlciwgc2luY2UgdHdvIHN0cmluZ3Mgd2l0aCB0aGUgc2FtZSBjaGFyYWN0ZXJzIGJlY29tZSBpZGVudGljYWwgb25jZSBzb3J0ZWQuIFRoYXQgd29ya3MsIGJ1dCBzb3J0aW5nIGNvc3RzIE8obiBsb2cgbikuCgpDb3VudGluZyBpbnN0ZWFkIG9mIHNvcnRpbmcgZHJvcHMgdGhhdCB0byBPKG4pOiBidWlsZCBhIGZyZXF1ZW5jeSB0YWJsZSBmb3IgYGFgLCB0aGVuIHdhbGsgYGJgIG9uY2UsIGRlY3JlbWVudGluZyBhcyB5b3UgZ28uIElmIGBiYCBpcyBhIHRydWUgcGVybXV0YXRpb24sIGV2ZXJ5IGNvdW50IGxhbmRzIGJhY2sgYXQgZXhhY3RseSAwLgoKYGBgCmEgPSAiYWIiLCBiID0gImJhIgoKZnJlcVRhYmxlKGEpOiAgICAgICAge2E6IDEsIGI6IDF9Cgp3YWxrIGI6CiAgJ2InIC0+IGZyZXFBW2JdIDEgLT4gMAogICdhJyAtPiBmcmVxQVthXSAxIC0+IDAKCm5vIGNvdW50IHdlbnQgbmVnYXRpdmUgLT4gdHJ1ZQpgYGAKCmBgYAphID0gImFiIiwgYiA9ICJhYSIKCmZyZXFUYWJsZShhKTogICAgICAgIHthOiAxLCBiOiAxfQoKd2FsayBiOgogICdhJyAtPiBmcmVxQVthXSAxIC0+IDAKICAnYScgLT4gZnJlcUFbYV0gMCAtPiAtMSAgIChhbHJlYWR5IGF0IDAsICdhJyBhcHBlYXJzIG9uY2UgdG9vIG9mdGVuKQoKY291bnQgd2VudCBuZWdhdGl2ZSAtPiBmYWxzZQpgYGAK</script>
+<script>
+  const b64 = document.getElementById("md-source").textContent.trim();
+  const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+  const md = new TextDecoder("utf-8").decode(bytes);
+  document.getElementById("content").innerHTML = marked.parse(md);
+</script>
+
+</body>
+</html>
