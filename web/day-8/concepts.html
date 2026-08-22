@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 8: Load Balancers and Caching · Java, One Concept at a Time</title>
+<meta name="description" content="Helps spread traffic across a cluster of servers, improving response time and availability.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Day 8: Load Balancers and Caching · Java, One Concept at a Time">
+<meta property="og:description" content="Helps spread traffic across a cluster of servers, improving response time and availability.">
+<meta property="og:url" content="https://dailyjava.blog/day-8/concepts.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Day 8: Load Balancers and Caching · Java, One Concept at a Time">
+<meta name="twitter:description" content="Helps spread traffic across a cluster of servers, improving response time and availability.">
+<script src="../theme.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script src="../tailwind.config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* keep ASCII/box-drawing diagrams intact: no wrapping, scroll if too wide */
+  .prose pre { white-space: pre; overflow-x: auto; }
+</style>
+</head>
+<body class="font-sans bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200 min-h-screen">
+
+<header class="border-b border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 py-6 flex items-center justify-between">
+    <a href="../index.html" class="text-sm font-medium text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300">← Java, One Concept at a Time</a>
+    <button
+      onclick="toggleTheme()"
+      aria-label="Toggle dark mode"
+      title="Toggle dark mode"
+      class="shrink-0 rounded-full border border-stone-200 bg-white p-2 text-base leading-none hover:border-amber-300 dark:border-stone-700 dark:bg-stone-800 dark:hover:border-amber-500"
+    >
+      <span class="dark:hidden">🌙</span>
+      <span class="hidden dark:inline">☀️</span>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 sm:px-8 py-10">
+  <article
+    id="content"
+    class="prose prose-lg prose-stone dark:prose-invert max-w-none font-serif
+           prose-headings:font-sans prose-headings:font-semibold
+           prose-code:font-mono prose-pre:font-mono
+           prose-a:text-amber-700 dark:prose-a:text-amber-400"
+  ></article>
+</main>
+
+<!-- Markdown source, base64-encoded so it ships inline with no fetch() of a
+     separate file — that's what breaks when this page is opened via file://. -->
+<script id="md-source" type="text/plain">IyBEYXkgODogTG9hZCBCYWxhbmNlcnMgYW5kIENhY2hpbmcKCiMjIExvYWQgQmFsYW5jaW5nCgpIZWxwcyBzcHJlYWQgdHJhZmZpYyBhY3Jvc3MgYSBjbHVzdGVyIG9mIHNlcnZlcnMsIGltcHJvdmluZyByZXNwb25zZSB0aW1lIGFuZCBhdmFpbGFiaWxpdHkuCgotIFNpdHMgYmV0d2VlbiB0aGUgY2xpZW50IGFuZCB0aGUgc2VydmVyCi0gUmVkdWNlcyBpbmRpdmlkdWFsIHNlcnZlciBsb2FkIGFuZCBwcmV2ZW50cyBhIHNpbmdsZSBwb2ludCBvZiBmYWlsdXJlCgojIyMgQmFzaWMgdG9wb2xvZ3kKCmBgYApjbGllbnRzIC0tPiBbIGxvYWQgYmFsYW5jZXIgXSAtLSstLT4gc2VydmVyIDEKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgKy0tPiBzZXJ2ZXIgMgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICArLS0+IHNlcnZlciAzCmBgYAoKIyMjIEJlbmVmaXRzCgotIGZhc3RlciwgdW5pbnRlcnJ1cHRlZCBleHBlcmllbmNlCi0gbGVzcyBkb3dudGltZQotIGhpZ2hlciB0aHJvdWdocHV0IGNhbiBiZSBoYW5kbGVkCgojIyMgQWxnb3JpdGhtcwoKLSByb3VuZCByb2JpbjogcmVxdWVzdHMgZGlzdHJpYnV0ZWQgc2VxdWVudGlhbGx5IGFjcm9zcyBzZXJ2ZXJzLiBUaGUgY3VycmVudCBsb2FkCmlzIGlnbm9yZWQKLSB3ZWlnaHRlZCByb3VuZCByb2Jpbjogc2FtZSBpZGVhLCBidXQgc2VydmVycyB3aXRoIG1vcmUgY2FwYWNpdHkgZ2V0IGEgbGFyZ2VyIHNoYXJlCi0gbGVhc3QgY29ubmVjdGlvbnM6IHJvdXRlcyB0byB0aGUgc2VydmVyIHdpdGggdGhlIGZld2VzdCBhY3RpdmUgY29ubmVjdGlvbnMKLSBsZWFzdCByZXNwb25zZSB0aW1lOiBsaWtlIGxlYXN0IGNvbm5lY3Rpb25zLCBidXQgYWxzbyBmYWN0b3JzIGluIGN1cnJlbnQgYXZlcmFnZSByZXNwb25zZSB0aW1lCgojIyMgRmFpbG92ZXIgcGF0dGVybnMKCi0gYWN0aXZlLXBhc3NpdmU6IG9uZSBub2RlIGhhbmRsZXMgdHJhZmZpYywgYSBzdGFuZGJ5IG5vZGUgdGFrZXMgb3ZlciBvbmx5IGlmIGl0IGZhaWxzIChkZXRlY3RlZCB2aWEgaGVhbHRoIGNoZWNrcykKLSBhY3RpdmUtYWN0aXZlOiBtdWx0aXBsZSBub2RlcyBoYW5kbGUgdHJhZmZpYyBhdCB0aGUgc2FtZSB0aW1lOyBpZiBvbmUgZmFpbHMsIHRoZSBvdGhlcnMgYWJzb3JiIGl0cyBsb2FkCgoKIyMgQ2FjaGluZwoKSW1wcm92ZXMgcGVyZm9ybWFuY2UgYnkgc3RvcmluZyBmcmVxdWVudGx5IGFjY2Vzc2VkIGRhdGEgaW4gdGVtcG9yYXJ5IHN0b3JhZ2UgCgotIHJlY2VudGx5IHJlcXVlc3RlZCBkYXRhIGlzIGxpa2VseSB0byBiZSByZXF1ZXN0ZWQgYWdhaW4gKHRlbXBvcmFsIGxvY2FsaXR5KQotIHNob3J0LXRlcm0gbWVtb3J5OiBsaW1pdGVkIGFtb3VudCBvZiBzcGFjZSBidXQgZmFzdGVyIHRoYW4gdGhlIG9yaWdpbmFsIHNvdXJjZSBvZiBkYXRhCgojIyMgQ29udGVudCBkZWxpdmVyeSBuZXR3b3JrIChDRE4pCgpBIGdlb2dyYXBoaWNhbGx5IGRpc3RyaWJ1dGVkIHNldCBvZiBjYWNoZSBzZXJ2ZXJzIHRoYXQgc2VydmUgY29udGVudCBmcm9tIGEgbG9jYXRpb24gY2xvc2UgdG8gdGhlIGNsaWVudC4KCi0gdXNlZnVsIGZvciBzaXRlcyBzZXJ2aW5nIGxhcmdlIGFtb3VudHMgb2Ygc3RhdGljIGNvbnRlbnQKCiMjIyBDYWNoZSB3cml0aW5nIHBvbGljaWVzCgpIb3cgYSB3cml0ZSByZWFjaGVzIHRoZSBjYWNoZSBhbmQgdGhlIGJhY2tpbmcgc3RvcmUuCgotIHdyaXRlLXRocm91Z2g6IGNhY2hlIGFuZCBkYiB1cGRhdGVkIGF0IHRoZSBzYW1lIHRpbWUsIHN0cm9uZyBjb25zaXN0ZW5jeSBidXQgaGlnaGVyIGxhdGVuY3kKLSB3cml0ZS1hcm91bmQ6IHdyaXRlcyBnbyBkaXJlY3RseSB0byB0aGUgZGIsIHNraXBwaW5nIHRoZSBjYWNoZTsgdGhlIGNhY2hlIGlzIG9ubHkgcG9wdWxhdGVkIG9uIHRoZSBuZXh0IHJlYWQuCi0gd3JpdGUtYmFjayAod3JpdGUtYmVoaW5kKTogd3JpdGUgdGhlIGNhY2hlIG9ubHksIHRoZSBkYXRhYmFzZSBpcyBzeW5jaHJvbml6ZWQgbGF0ZXIsIGFzeW5jaHJvbm91c2x5LiBsb3cgbGF0ZW5jeSBidXQgcmlzayBvZiBsb3NpbmcgZGF0YSBpZiB0aGUgY2FjaGUgZmFpbHMuCgojIyMgQ2FjaGUgaW52YWxpZGF0aW9uCgpJZiB0aGUgZGF0YSBjaGFuZ2VkIGluIHRoZSBkYXRhYmFzZSwgc3RhbGUgZW50cmllcyBhbHJlYWR5IHNpdHRpbmcgaW4gdGhlIGNhY2hlIG5lZWQgdG8gZ28sIG9yIGJlIHJlZnJlc2hlZC4KCi0gVFRMICh0aW1lLXRvLWxpdmUpOiBlYWNoIGVudHJ5IGV4cGlyZXMgYXV0b21hdGljYWxseSBhZnRlciBhIHNldCBkdXJhdGlvbiwgc3RhbGUgZGF0YSBjYW4gc3RpbGwgYmUgc2VydmVkIHVudGlsIHRoZW4KLSBleHBsaWNpdCBpbnZhbGlkYXRpb246IHRoZSB3cml0ZSBwYXRoIHB1cmdlcyAob3IgdXBkYXRlcykgdGhlIG1hdGNoaW5nIGNhY2hlIGVudHJ5IGFzIHBhcnQgb2YgdGhlIHdyaXRlLCB0aWdodGVyIGNvbnNpc3RlbmN5IGJ1dCBjb3VwbGVzIHRoZSB3cml0ZSBwYXRoIHRvIHRoZSBjYWNoZQoKIyMjIEV2aWN0aW9uCgpSZW1vdmluZyBzdG9yZWQgZGF0YSBmcm9tIHRoZSBjYWNoZSB3aGVuIHJ1bm5pbmcgb3V0IG9mIHNwYWNlLgoKLSBGSUZPIChmaXJzdC1pbi1maXJzdC1vdXQpCi0gTElGTyAobGFzdC1pbi1maXJzdC1vdXQpCi0gTFJVIChsZWFzdC1yZWNlbnRseS11c2VkKQotIExGVSAobGVhc3QtZnJlcXVlbnRseS11c2VkKQo=</script>
+<script>
+  const b64 = document.getElementById("md-source").textContent.trim();
+  const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+  const md = new TextDecoder("utf-8").decode(bytes);
+  document.getElementById("content").innerHTML = marked.parse(md);
+</script>
+
+</body>
+</html>

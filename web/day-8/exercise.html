@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URLify · Java, One Concept at a Time</title>
+<meta name="description" content="Write urlSafeString(String word): replace every space in a string with">
+<meta property="og:type" content="article">
+<meta property="og:title" content="URLify · Java, One Concept at a Time">
+<meta property="og:description" content="Write urlSafeString(String word): replace every space in a string with">
+<meta property="og:url" content="https://dailyjava.blog/day-8/exercise.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="URLify · Java, One Concept at a Time">
+<meta name="twitter:description" content="Write urlSafeString(String word): replace every space in a string with">
+<script src="../theme.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script src="../tailwind.config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* keep ASCII/box-drawing diagrams intact: no wrapping, scroll if too wide */
+  .prose pre { white-space: pre; overflow-x: auto; }
+</style>
+</head>
+<body class="font-sans bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200 min-h-screen">
+
+<header class="border-b border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 py-6 flex items-center justify-between">
+    <a href="../index.html" class="text-sm font-medium text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300">← Java, One Concept at a Time</a>
+    <button
+      onclick="toggleTheme()"
+      aria-label="Toggle dark mode"
+      title="Toggle dark mode"
+      class="shrink-0 rounded-full border border-stone-200 bg-white p-2 text-base leading-none hover:border-amber-300 dark:border-stone-700 dark:bg-stone-800 dark:hover:border-amber-500"
+    >
+      <span class="dark:hidden">🌙</span>
+      <span class="hidden dark:inline">☀️</span>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 sm:px-8 py-10">
+  <article
+    id="content"
+    class="prose prose-lg prose-stone dark:prose-invert max-w-none font-serif
+           prose-headings:font-sans prose-headings:font-semibold
+           prose-code:font-mono prose-pre:font-mono
+           prose-a:text-amber-700 dark:prose-a:text-amber-400"
+  ></article>
+</main>
+
+<!-- Markdown source, base64-encoded so it ships inline with no fetch() of a
+     separate file — that's what breaks when this page is opened via file://. -->
+<script id="md-source" type="text/plain">IyBVUkxpZnkKCiMjIFByb2JsZW0KCldyaXRlIGB1cmxTYWZlU3RyaW5nKFN0cmluZyB3b3JkKWA6IHJlcGxhY2UgZXZlcnkgc3BhY2UgaW4gYSBzdHJpbmcgd2l0aApgJTIwYCwgdHJpbW1pbmcgbGVhZGluZy90cmFpbGluZyB3aGl0ZXNwYWNlIGZpcnN0LgoKYGBgCiJNciBKb2huIFNtaXRoIiAtPiAiTXIlMjBKb2huJTIwU21pdGgiCiJhICBiIiAgICAgICAgICAgLT4gImElMjAlMjBiIgoiSGVsbG8iICAgICAgICAgIC0+ICJIZWxsbyIKYGBgCgojIyBUZXN0cyAoUkVEKQoKYGBgamF2YQpAVGVzdApwdWJsaWMgdm9pZCBzaG91bGRNYWtlU3RyaW5nc1VSTFNhZmUoKXsKICAgIGFzc2VydFRoYXQodW5kZXJUZXN0LnVybFNhZmVTdHJpbmcoIk1yIEpvaG4gU21pdGgiKSkKICAgICAgICAgICAgLmlzRXF1YWxUbygiTXIlMjBKb2huJTIwU21pdGgiKTsKCiAgICBhc3NlcnRUaGF0KHVuZGVyVGVzdC51cmxTYWZlU3RyaW5nKCJIZWxsbyBXb3JsZCIpKQogICAgICAgICAgICAuaXNFcXVhbFRvKCJIZWxsbyUyMFdvcmxkIik7CgogICAgYXNzZXJ0VGhhdCh1bmRlclRlc3QudXJsU2FmZVN0cmluZygiSmF2YSBJcyBGdW4iKSkKICAgICAgICAgICAgLmlzRXF1YWxUbygiSmF2YSUyMElzJTIwRnVuIik7CgogICAgYXNzZXJ0VGhhdCh1bmRlclRlc3QudXJsU2FmZVN0cmluZygiYSAgYiIpKQogICAgICAgICAgICAuaXNFcXVhbFRvKCJhJTIwJTIwYiIpOwoKICAgIGFzc2VydFRoYXQodW5kZXJUZXN0LnVybFNhZmVTdHJpbmcoIkhlbGxvIikpCiAgICAgICAgICAgIC5pc0VxdWFsVG8oIkhlbGxvIik7Cn0KYGBgCgojIyBJbXBsZW1lbnRhdGlvbiAoR1JFRU4pCgpgYGBqYXZhCi8qCiAgICBuID0gdHJpbW1lZCBsZW5ndGgsIHMgPSBudW1iZXIgb2Ygc3BhY2VzCiAgICB0b3RhbFNwYWNlczogb25lIHBhc3MsIE8obikKICAgIG1haW4gbG9vcDogb25lIHBhc3MsIE8obikKICAgIE8obikgdGltZSwgTyhuKSBzcGFjZSAocmVzdWx0IGFycmF5IGlzIG4gKyAycyBjaGFycykKKi8KcHVibGljIFN0cmluZyB1cmxTYWZlU3RyaW5nKFN0cmluZyB3b3JkKXsKICAgIGNoYXJbXSBjaGFyQXJyYXkgPSB3b3JkLnRyaW0oKS50b0NoYXJBcnJheSgpOwogICAgY2hhcltdIGNoYXJBcnJheVJlc3VsdCA9IG5ldyBjaGFyW2NoYXJBcnJheS5sZW5ndGggKyAodG90YWxTcGFjZXMod29yZC50cmltKCkpICogMildOwoKICAgIGludCBpbmRleCA9IGNoYXJBcnJheVJlc3VsdC5sZW5ndGg7CgogICAgZm9yIChpbnQgaSA9IGNoYXJBcnJheS5sZW5ndGggLSAxOyBpID49IDA7IGktLSl7CiAgICAgICAgaWYgKENoYXJhY3Rlci5pc1doaXRlc3BhY2UoY2hhckFycmF5W2ldKSl7CiAgICAgICAgICAgIGNoYXJBcnJheVJlc3VsdFstLWluZGV4XSA9ICcwJzsKICAgICAgICAgICAgY2hhckFycmF5UmVzdWx0Wy0taW5kZXhdID0gJzInOwogICAgICAgICAgICBjaGFyQXJyYXlSZXN1bHRbLS1pbmRleF0gPSAnJSc7CiAgICAgICAgfQogICAgICAgIGVsc2UgewogICAgICAgICAgICBjaGFyQXJyYXlSZXN1bHRbLS1pbmRleF0gPSBjaGFyQXJyYXlbaV07CiAgICAgICAgfQogICAgfQoKICAgIHJldHVybiBuZXcgU3RyaW5nKGNoYXJBcnJheVJlc3VsdCk7Cn0KCnByaXZhdGUgaW50IHRvdGFsU3BhY2VzKFN0cmluZyB3b3JkKXsKICAgIGludCByZXN1bHQgPSAwOwoKICAgIGZvciAoaW50IGkgPSAwOyBpIDwgd29yZC5sZW5ndGgoKTsgaSsrKXsKICAgICAgICBpZiAoQ2hhcmFjdGVyLmlzV2hpdGVzcGFjZSh3b3JkLmNoYXJBdChpKSkpCiAgICAgICAgICAgIHJlc3VsdCsrOwogICAgfQogICAgcmV0dXJuIHJlc3VsdDsKfQpgYGAKCiMjIFdoeSBmaWxsIGZyb20gdGhlIGJhY2sKCkVhY2ggc3BhY2UgZ3Jvd3MgZnJvbSAxIGNoYXJhY3RlciB0byAzIChgJTIwYCkuIEZpbGxpbmcgbGVmdCB0byByaWdodAp3b3VsZCBrZWVwIHB1c2hpbmcgbGF0ZXIgY2hhcmFjdGVycyBmdXJ0aGVyIGFsb25nLCBmb3JjaW5nIHJlLXNoaWZ0cywKTyhuwrdzKSB3b3JzdCBjYXNlLiBGaWxsaW5nIHJpZ2h0IHRvIGxlZnQgaW5zdGVhZDogdGhlIGZpbmFsIGxlbmd0aCBpcwphbHJlYWR5IGtub3duLCBzbyBldmVyeSBjaGFyYWN0ZXIgaGFzIG9uZSBmaXhlZCBzbG90IGFuZCBnZXRzIHdyaXR0ZW4KZXhhY3RseSBvbmNlLiBPKG4pIHRvdGFsLgo=</script>
+<script>
+  const b64 = document.getElementById("md-source").textContent.trim();
+  const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+  const md = new TextDecoder("utf-8").decode(bytes);
+  document.getElementById("content").innerHTML = marked.parse(md);
+</script>
+
+</body>
+</html>

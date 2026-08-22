@@ -109,5 +109,16 @@ const days = [
       "title": "Permutation Check",
       "src": "day-7/exercise.html"
     }
+  },
+  {
+    "day": 8,
+    "label": "Day 8",
+    "date": "2026-08-22",
+    "title": "Day 8: Load Balancers and Caching",
+    "concepts": "day-8/concepts.html",
+    "exercise": {
+      "title": "URLify",
+      "src": "day-8/exercise.html"
+    }
   }
 ];

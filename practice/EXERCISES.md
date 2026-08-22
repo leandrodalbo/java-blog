@@ -62,7 +62,7 @@ palindrome permutation, two-sum, string reverse), Arrays.merge, URLify.
 - [ ] String compression
 - [ ] Remove duplicates from an unsorted linked list without extra space (O(n²)/O(1))
 - [ ] Queue implemented with two stacks
-- [ ] Min-stack (O(1) `getMin`)
+- [x] Min-stack (O(1) `getMin`)
 - [ ] Parking lot or elevator system (OOD)
 - [ ] Climbing stairs (DP, bottom-up tabulation — count distinct ways to climb n stairs taking 1 or 2 steps at a time)
 - [ ] Coin change (DP — fewest coins to make an amount; classic unbounded-knapsack shape, good contrast with climbing stairs)
@@ -78,14 +78,6 @@ palindrome permutation, two-sum, string reverse), Arrays.merge, URLify.
 ---
 
 ## Interview prep — 3-day sprint (interview 2026-08-25)
-
-Picked from the plan above for interview frequency and zero prior coverage
-(hashmap, stack, design, sorting, DP, Java fundamentals). Trees, graphs, and
-linked lists deliberately skipped for this pass.
-
-### Day 1
-- [x] Group anagrams (hashmap grouping by sorted-string or char-count key)
-- [ ] Min-stack (O(1) `getMin`)
 
 ### Day 2
 - [ ] LRU cache (HashMap + doubly linked list), O(1) get/put
