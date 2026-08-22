@@ -46,7 +46,7 @@ palindrome permutation, two-sum, string reverse), Arrays.merge, URLify.
 ## Day 9 — OOD + Concurrency
 
 - [ ] **Rate limiter** (token bucket), thread-safe under concurrent `tryAcquire()`.
-- [ ] **Custom fixed-size thread pool** (mini `ExecutorService`): worker threads pulling off a shared queue, `shutdown()` vs `shutdownNow()`.
+- [ ] **Thread-safe Singleton** with double-checked locking. Ties back to Day 1's `volatile`: without it, the double-checked check can observe a partially-constructed instance.
 
 ## Day 10 — Java specifics + cold review (rehearsal day)
 
@@ -63,12 +63,34 @@ palindrome permutation, two-sum, string reverse), Arrays.merge, URLify.
 - [ ] Remove duplicates from an unsorted linked list without extra space (O(n²)/O(1))
 - [ ] Queue implemented with two stacks
 - [ ] Min-stack (O(1) `getMin`)
-- [ ] Lowest common ancestor in a plain (non-BST) binary tree
-- [ ] Clone a graph (deep copy with cycles)
-- [ ] Course schedule / topological sort (Kahn's algorithm)
 - [ ] Parking lot or elevator system (OOD)
+- [ ] Climbing stairs (DP, bottom-up tabulation — count distinct ways to climb n stairs taking 1 or 2 steps at a time)
+- [ ] Coin change (DP — fewest coins to make an amount; classic unbounded-knapsack shape, good contrast with climbing stairs)
+- [ ] Maximum subarray sum (Kadane's algorithm — O(n) single pass, a DP recurrence in disguise)
+- [x] Group anagrams (hashmap grouping by sorted-string or char-count key, same family as the permutation-check exercise)
+- [ ] Merge intervals (sort + sweep over an array of ranges, common array/interval pattern)
 
 ## Notes for yourself
 
 - Keep the complexity-comment style you already use — it's exactly what you should say out loud in an interview.
 - Ask for a review after each day the same way as Day1–Day3 — bugs/edge cases matter more than "it compiles."
+
+---
+
+## Interview prep — 3-day sprint (interview 2026-08-25)
+
+Picked from the plan above for interview frequency and zero prior coverage
+(hashmap, stack, design, sorting, DP, Java fundamentals). Trees, graphs, and
+linked lists deliberately skipped for this pass.
+
+### Day 1
+- [x] Group anagrams (hashmap grouping by sorted-string or char-count key)
+- [ ] Min-stack (O(1) `getMin`)
+
+### Day 2
+- [ ] LRU cache (HashMap + doubly linked list), O(1) get/put
+- [ ] Merge intervals (sort + sweep over an array of ranges)
+
+### Day 3 (light day, day before the interview)
+- [ ] Maximum subarray sum (Kadane's algorithm)
+- [ ] `equals`/`hashCode` contract exercise
