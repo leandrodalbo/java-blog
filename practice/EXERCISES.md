@@ -23,25 +23,25 @@ palindrome permutation, two-sum, string reverse), Arrays.merge, URLify.
 - [x] **Rotate an array in place by k.** O(n) time, O(1) space (reversal trick, not a new array).
 - [x] **Reverse a singly linked list**, iteratively and recursively. Compare space cost (O(1) vs O(n) call stack).
 
-## Day 5 — Stacks + Trees
+## Day 5 — Stacks + Searching
 
 - [x] **Valid parentheses / balanced brackets** for `()[]{}`. O(n) time/space.
-- [ ] **Validate a BST.** Classic bug to avoid: checking only immediate children isn't enough — bounds must propagate down the recursion.
+- [ ] **Binary search.** Find a target's index in a sorted array, and the first/last position of a target (the classic follow-up). O(log n) time, O(1) space — same complexity class as the B-tree index lookups from Day 9's concepts write-up.
 
-## Day 6 — Graphs + Linked Lists
+## Day 6 — Array Techniques
 
-- [ ] **Number of islands** (grid BFS/DFS). O(rows × cols) time.
-- [ ] **Detect a cycle in a linked list and find its start** (Floyd's tortoise/hare). O(n) time, O(1) space — know *why* the second phase finds the start, that's usually the actual follow-up question.
+- [x] **Product of array except self.** Build a result array where each slot is the product of every other element, without division. O(n) time, O(1) extra space (excluding the output array) using a prefix-pass then a suffix-pass.
+- [ ] **Majority element** (Boyer-Moore voting). Find the element appearing more than n/2 times. O(n) time, O(1) space — a single counter and candidate, no auxiliary structure.
 
 ## Day 7 — Concurrency (dedicated day, this is the section senior rounds lean on hardest)
 
 - [ ] **Producer-consumer** using `BlockingQueue`. Be ready to also sketch the raw `wait`/`notify` version verbally even if you don't code it.
-- [ ] **Thread-safe counter**, compared three ways: `synchronized`, `AtomicInteger`, `LongAdder`. Know when `LongAdder` wins (high-contention writes, don't need strict read consistency).
+- [x] **Thread-safe counter**, compared three ways: `synchronized`, `AtomicInteger`, `LongAdder`. Know when `LongAdder` wins (high-contention writes, don't need strict read consistency).
 
 ## Day 8 — OOD + Java specifics
 
-- [ ] **LRU cache** from scratch (HashMap + doubly linked list), O(1) get/put.
-- [ ] **`equals`/`hashCode` contract exercise.** Write a class that breaks the contract, show it silently corrupting a `HashSet`, then fix it.
+- [x] **LRU cache** from scratch (HashMap + doubly linked list), O(1) get/put.
+- [ ] **Comparable / Comparator.** Sort a list of custom objects two ways: implement `Comparable<T>` for natural ordering, then a separate `Comparator` (via `Comparator.comparing().thenComparing()`) for a different field order.
 
 ## Day 9 — OOD + Concurrency
 
@@ -59,30 +59,14 @@ palindrome permutation, two-sum, string reverse), Arrays.merge, URLify.
 ## Bonus backlog (only if energy allows — not required for the 7 days)
 
 - [ ] Zero matrix (O(1) extra space version)
-- [ ] String compression
+- [?] String compression
 - [ ] Remove duplicates from an unsorted linked list without extra space (O(n²)/O(1))
 - [ ] Queue implemented with two stacks
 - [x] Min-stack (O(1) `getMin`)
 - [ ] Parking lot or elevator system (OOD)
 - [ ] Climbing stairs (DP, bottom-up tabulation — count distinct ways to climb n stairs taking 1 or 2 steps at a time)
 - [ ] Coin change (DP — fewest coins to make an amount; classic unbounded-knapsack shape, good contrast with climbing stairs)
-- [ ] Maximum subarray sum (Kadane's algorithm — O(n) single pass, a DP recurrence in disguise)
+- [?] Maximum subarray sum (Kadane's algorithm — O(n) single pass, a DP recurrence in disguise)
 - [x] Group anagrams (hashmap grouping by sorted-string or char-count key, same family as the permutation-check exercise)
 - [ ] Merge intervals (sort + sweep over an array of ranges, common array/interval pattern)
 
-## Notes for yourself
-
-- Keep the complexity-comment style you already use — it's exactly what you should say out loud in an interview.
-- Ask for a review after each day the same way as Day1–Day3 — bugs/edge cases matter more than "it compiles."
-
----
-
-## Interview prep — 3-day sprint (interview 2026-08-25)
-
-### Day 2
-- [ ] LRU cache (HashMap + doubly linked list), O(1) get/put
-- [ ] Merge intervals (sort + sweep over an array of ranges)
-
-### Day 3 (light day, day before the interview)
-- [ ] Maximum subarray sum (Kadane's algorithm)
-- [ ] `equals`/`hashCode` contract exercise

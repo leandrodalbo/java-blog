@@ -120,5 +120,27 @@ const days = [
       "title": "URLify",
       "src": "day-8/exercise.html"
     }
+  },
+  {
+    "day": 9,
+    "label": "Day 9",
+    "date": "2026-08-24",
+    "title": "Day 9: Scaling the Database",
+    "concepts": "day-9/concepts.html",
+    "exercise": {
+      "title": "Min Stack",
+      "src": "day-9/exercise.html"
+    }
+  },
+  {
+    "day": 10,
+    "label": "Day 10",
+    "date": "2026-08-25",
+    "title": "Day 10: System Design Concepts Mix",
+    "concepts": "day-10/concepts.html",
+    "exercise": {
+      "title": "Thread-Safe Counter",
+      "src": "day-10/exercise.html"
+    }
   }
 ];
