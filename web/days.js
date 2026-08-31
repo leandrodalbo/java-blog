@@ -142,5 +142,16 @@ const days = [
       "title": "Thread-Safe Counter",
       "src": "day-10/exercise.html"
     }
+  },
+  {
+    "day": 11,
+    "label": "Day 11",
+    "date": "2026-08-28",
+    "title": "Day 11: Spring Roots",
+    "concepts": "day-11/concepts.html",
+    "exercise": {
+      "title": "LRU Cache",
+      "src": "day-11/exercise.html"
+    }
   }
 ];
