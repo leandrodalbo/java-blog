@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entry 5: Data Structures are important · Systems &amp; Software Concepts</title>
+<meta name="description" content="A data structure for storing key-value pairs so you can look them up fast.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Entry 5: Data Structures are important · Systems &amp; Software Concepts">
+<meta property="og:description" content="A data structure for storing key-value pairs so you can look them up fast.">
+<meta property="og:url" content="https://softwaresystems.blog/entry-5/concepts.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Entry 5: Data Structures are important · Systems &amp; Software Concepts">
+<meta name="twitter:description" content="A data structure for storing key-value pairs so you can look them up fast.">
+<script src="../theme.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script src="../tailwind.config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* keep ASCII/box-drawing diagrams intact: no wrapping, scroll if too wide */
+  .prose pre { white-space: pre; overflow-x: auto; }
+</style>
+</head>
+<body class="font-sans bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200 min-h-screen">
+
+<header class="border-b border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 py-6 flex items-center justify-between">
+    <a href="../index.html" class="text-sm font-medium text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300">← Systems &amp; Software Concepts</a>
+    <button
+      onclick="toggleTheme()"
+      aria-label="Toggle dark mode"
+      title="Toggle dark mode"
+      class="shrink-0 rounded-full border border-stone-200 bg-white p-2 text-base leading-none hover:border-amber-300 dark:border-stone-700 dark:bg-stone-800 dark:hover:border-amber-500"
+    >
+      <span class="dark:hidden">🌙</span>
+      <span class="hidden dark:inline">☀️</span>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 sm:px-8 py-10">
+  <article
+    id="content"
+    class="prose prose-lg prose-stone dark:prose-invert max-w-none font-serif
+           prose-headings:font-sans prose-headings:font-semibold
+           prose-code:font-mono prose-pre:font-mono
+           prose-a:text-amber-700 dark:prose-a:text-amber-400"
+  ></article>
+</main>
+
+<!-- Markdown source, base64-encoded so it ships inline with no fetch() of a
+     separate file — that's what breaks when this page is opened via file://. -->
+<script id="md-source" type="text/plain">IyBFbnRyeSA1OiBEYXRhIFN0cnVjdHVyZXMgYXJlIGltcG9ydGFudAoKIyMgSGFzaCBUYWJsZXMKCkEgZGF0YSBzdHJ1Y3R1cmUgZm9yIHN0b3Jpbmcga2V5LXZhbHVlIHBhaXJzIHNvIHlvdSBjYW4gbG9vayB0aGVtIHVwIGZhc3QuCk9uIGF2ZXJhZ2UsIGxvb2stdXBzIHN0YXkgKipPKDEpKiogYXMgaXQgZ3Jvd3MsIGJlY2F1c2UgdGhlIGFycmF5IHJlc2l6ZXMKb25jZSBpdCBnZXRzIHRvbyBmdWxsLgoKIyMjIEhvdyBhcmUgdGhleSBpbXBsZW1lbnRlZD8KCkFuIGFycmF5LCB3aGVyZSBlYWNoIHNsb3QgaG9sZHMgYSBzbWFsbCBsaW5rZWQgbGlzdCBpbnN0ZWFkIG9mIGEgc2luZ2xlCnZhbHVlOgoKMS4gQSAqKmhhc2ggZnVuY3Rpb24qKiB0dXJucyB0aGUga2V5IGludG8gYSBudW1iZXI6IGBoYXNoQ29kZSgpYCBpbiBKYXZhLgoyLiBUaGF0IG51bWJlciBpcyB1c2VkIHRvIGdldCBhIHZhbGlkIGluZGV4OiBgaGFzaENvZGUgJSBhcnJheVNpemVgLgozLiBUaGUga2V5LXZhbHVlIHBhaXIgaXMgYWRkZWQgdG8gdGhlIGxpbmtlZCBsaXN0IGF0IHRoYXQgaW5kZXguCgpgYGAKa2V5IC0tLT4gaGFzaENvZGUoKSAtLS0+IGhhc2hDb2RlICUgYXJyYXlTaXplIC0tLT4gbGlua2VkIGxpc3QgYXQgdGhhdCBpbmRleApgYGAKCiMjIyBDb2xsaXNpb25zCgpUd28gZGlmZmVyZW50IGtleXMgY2FuIGxhbmQgb24gdGhlIHNhbWUgaW5kZXguIFRoYXQncyBhICoqY29sbGlzaW9uKiouCkJlY2F1c2UgZWFjaCBzbG90IGlzIGEgbGlua2VkIGxpc3QsIG5vdCBqdXN0IG9uZSB2YWx1ZSwgaXQgc2ltcGx5IGdyb3dzOgoKYGBgCmluZGV4ICAgbGlua2VkIGxpc3QKICAwICAgICAtPiBbImFwcGxlIiwgM10gLT4gbnVsbAogIDEgICAgIC0+IG51bGwKICAyICAgICAtPiBbImJhbmFuYSIsIDddIC0+IFsiZ3JhcGUiLCAxXSAtPiBudWxsICAgPC0gY29sbGlzaW9uOiB0d28ga2V5cywgc2FtZSBzbG90CiAgMyAgICAgLT4gWyJraXdpIiwgOV0gLT4gbnVsbApgYGAKCkxvb2tpbmcgdXAgYCJncmFwZSJgIG1lYW5zOiBoYXNoIGl0IHRvIGluZGV4IGAyYCwgdGhlbiB3YWxrIHRoYXQgbGlzdCBjb21wYXJpbmcga2V5cyB1bnRpbCBgImdyYXBlImAgaXMgZm91bmQuCgojIyMgV2h5IGl0J3MgTygxKSBvbiBhdmVyYWdlLCBub3QgYWx3YXlzCgotICoqQmVzdCBjYXNlLCBPKDEpLioqIEEgZ29vZCBoYXNoIGZ1bmN0aW9uIHNwcmVhZHMga2V5cyBldmVubHksIHNvIGVhY2gKICBidWNrZXQgaG9sZHMgdmVyeSBmZXcgZW50cmllcywgb2Z0ZW4gemVybyBvciBvbmUuIEhhc2ggaXQsIGp1bXAgdG8gdGhlCiAgYnVja2V0LCBkb25lLgotICoqV29yc3QgY2FzZSwgTyhOKS4qKiBJZiBldmVyeSBrZXkgbGFuZHMgaW4gdGhlIHNhbWUgYnVja2V0LCBpdCB0dXJucwogIGludG8gb25lIGxvbmcgbGlua2VkIGxpc3QsIGFuZCBsb29rdXAgYmVjb21lcyBhIHBsYWluIGxpbmVhciBzY2FuLgoKIyMgQXJyYXkKCi0gKipGaXhlZCBzaXplKiosIHNldCB3aGVuIHRoZSBhcnJheSBpcyBjcmVhdGVkLgoKLSBFbGVtZW50cyBzaXQgaW4gKipjb250aWd1b3VzIG1lbW9yeSoqLCBzbyBhbnkgaW5kZXggY2FuIGJlIHJlYWNoZWQKICBkaXJlY3RseTogYGFkZHJlc3MgPSBiYXNlICsgaW5kZXggKiBlbGVtZW50U2l6ZWA6ICoqTygxKSBhY2Nlc3MqKi4KCi0gSW5zZXJ0aW5nIG9yIHJlbW92aW5nIGluIHRoZSBtaWRkbGUgbWVhbnMgc2hpZnRpbmcgb3RoZXIgZWxlbWVudHM6ICoqTyhOKSoqLgoKIyMgTGlzdCAoYEFycmF5TGlzdGApCgpBIHJlc2l6YWJsZSBhcnJheSwgc2FtZSBPKDEpIGluZGV4ZWQgYWNjZXNzIGFzIGEgcGxhaW4gYXJyYXksIHBsdXMgZ3Jvd3RoLgoKLSAqKk8oMSkgYWNjZXNzKiogYnkgaW5kZXgsIHNhbWUgcmVhc29uIGFzIGFuIGFycmF5IChjb250aWd1b3VzIG1lbW9yeSkuCgotICoqQW1vcnRpemVkIE8oMSkgYXBwZW5kLioqIFVzdWFsbHkgYWRkaW5nIGFuIGVsZW1lbnQgaXMgaW5zdGFudC4gV2hlbiB0aGUKICBhcnJheSBpcyBmdWxsLCBldmVyeSBlbGVtZW50IGdldHMgY29waWVkIGludG8gYSBiaWdnZXIgb25lLCB3aGljaCBpcwogIE8oTikuIFRoYXQgY29weSBpcyByYXJlIGVub3VnaCB0aGF0LCBvbiBhdmVyYWdlLCBlYWNoIGluc2VydCBzdGlsbCBjb3N0cwogIE8oMSkuCgotICoqTyhOKSBpbnNlcnQvcmVtb3ZlIGluIHRoZSBtaWRkbGUqKiwgZXZlcnl0aGluZyBhZnRlciB0aGUgZ2FwIGhhcyB0bwogIHNoaWZ0IG92ZXIuCgojIyBMaW5rZWQgTGlzdAoKQSBsaW5lYXIgc3RydWN0dXJlIG9mIG5vZGVzLCBlYWNoIGhvbGRpbmcgYSB2YWx1ZSBhbmQgYSBwb2ludGVyIHRvIHRoZQpuZXh0IG5vZGUgKGEgKipkb3VibHkqKiBsaW5rZWQgbGlzdCBhbHNvIGtlZXBzIGEgcG9pbnRlciB0byB0aGUgcHJldmlvdXMKb25lKS4KCi0gKipObyByYW5kb20gYWNjZXNzLioqIFJlYWNoaW5nIHRoZSAqaSotdGggbm9kZSBtZWFucyB3YWxraW5nIGZyb20gdGhlCiAgaGVhZCwgb25lIGBuZXh0YCBhdCBhIHRpbWUuIFRoYXQncyAqKk8oTikqKi4KCi0gKipPKDEpIGluc2VydC9yZW1vdmUgYXQgdGhlIGhlYWQqKiAoYW5kIGF0IHRoZSB0YWlsIHRvbywgaWYgYSB0YWlsCiAgcG9pbnRlciBpcyBrZXB0KS4gSnVzdCBuZWVkIHRvIHJld2lyZSBhIGNvdXBsZSBvZiBwb2ludGVycywgbm90aGluZyBzaGlmdHMuCgotICoqUmVtb3ZpbmcgYSBub2RlIHlvdSBhbHJlYWR5IGhhdmUgYSByZWZlcmVuY2UgdG8gaXMgTygxKSoqOiBwb2ludCB0aGUKICBwcmV2aW91cyBub2RlJ3MgYG5leHRgIHN0cmFpZ2h0IGF0IHRoZSBmb2xsb3dpbmcgbm9kZS4gRmluZGluZyB0aGF0IG5vZGUKICBpbiB0aGUgZmlyc3QgcGxhY2UgaXMgc3RpbGwgTyhOKS4KCiMjIFN0YWNrcwoKKipMSUZPKiogbWVhbnMgTGFzdCBJbiwgRmlyc3QgT3V0LiBUaGluayBvZiBhIHN0YWNrIG9mIHBsYXRlczogeW91IG9ubHkKZXZlciBhZGQgb3IgdGFrZSBmcm9tIHRoZSB0b3AuCgotIE9wZXJhdGlvbnM6IGBwdXNoYCAoYWRkIHRvIHRvcCksIGBwb3BgIChyZW1vdmUgZnJvbSB0b3ApLCBgcGVla2AgKGxvb2sgYXQKICB0aGUgdG9wIHdpdGhvdXQgcmVtb3ZpbmcgaXQpLCBgaXNFbXB0eWAuCgotIEFsbCBmb3VyIG9wZXJhdGlvbnMgYXJlICoqTygxKSoqLCBidXQgb25seSBiZWNhdXNlIHRoZXkgb25seSBldmVyIHRvdWNoIHRoZSB0b3AuCgojIyBRdWV1ZXMKCioqRklGTyoqIG1lYW5zIEZpcnN0IEluLCBGaXJzdCBPdXQuIFRoaW5rIG9mIGEgbGluZSBhdCBhIHN0b3JlOiBmaXJzdCB0byBqb2luLCBmaXJzdCB0byBiZSBzZXJ2ZWQuCgotIE9wZXJhdGlvbnM6IGBhZGRgIChlbnF1ZXVlLCB0byB0aGUgYmFjayksIGByZW1vdmVgIChkZXF1ZXVlLCBmcm9tIHRoZSBmcm9udCksIGBwZWVrYCAobG9vayBhdCB0aGUgZnJvbnQgd2l0aG91dCByZW1vdmluZyBpdCksIGBpc0VtcHR5YC4KCi0gU2FtZSBzaGFwZSBhcyBhIHN0YWNrOiBgYWRkYC9gcmVtb3ZlYC9gcGVla2AgYXJlICoqTygxKSoqIGJlY2F1c2UgdGhleSBvbmx5IGV2ZXIgdG91Y2ggdGhlIHR3byBlbmRzLgo=</script>
+<script>
+  const b64 = document.getElementById("md-source").textContent.trim();
+  const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+  const md = new TextDecoder("utf-8").decode(bytes);
+  document.getElementById("content").innerHTML = marked.parse(md);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entry 7: System Design concepts · Systems &amp; Software Concepts</title>
+<meta name="description" content="- It is not possible for a distributed system to simultaneously provide consistency, availability">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Entry 7: System Design concepts · Systems &amp; Software Concepts">
+<meta property="og:description" content="- It is not possible for a distributed system to simultaneously provide consistency, availability">
+<meta property="og:url" content="https://softwaresystems.blog/entry-7/concepts.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Entry 7: System Design concepts · Systems &amp; Software Concepts">
+<meta name="twitter:description" content="- It is not possible for a distributed system to simultaneously provide consistency, availability">
+<script src="../theme.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script src="../tailwind.config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* keep ASCII/box-drawing diagrams intact: no wrapping, scroll if too wide */
+  .prose pre { white-space: pre; overflow-x: auto; }
+</style>
+</head>
+<body class="font-sans bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200 min-h-screen">
+
+<header class="border-b border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 py-6 flex items-center justify-between">
+    <a href="../index.html" class="text-sm font-medium text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300">← Systems &amp; Software Concepts</a>
+    <button
+      onclick="toggleTheme()"
+      aria-label="Toggle dark mode"
+      title="Toggle dark mode"
+      class="shrink-0 rounded-full border border-stone-200 bg-white p-2 text-base leading-none hover:border-amber-300 dark:border-stone-700 dark:bg-stone-800 dark:hover:border-amber-500"
+    >
+      <span class="dark:hidden">🌙</span>
+      <span class="hidden dark:inline">☀️</span>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 sm:px-8 py-10">
+  <article
+    id="content"
+    class="prose prose-lg prose-stone dark:prose-invert max-w-none font-serif
+           prose-headings:font-sans prose-headings:font-semibold
+           prose-code:font-mono prose-pre:font-mono
+           prose-a:text-amber-700 dark:prose-a:text-amber-400"
+  ></article>
+</main>
+
+<!-- Markdown source, base64-encoded so it ships inline with no fetch() of a
+     separate file — that's what breaks when this page is opened via file://. -->
+<script id="md-source" type="text/plain">IyBFbnRyeSA3OiBTeXN0ZW0gRGVzaWduIGNvbmNlcHRzCgojIyBDQVAgVGhlb3JlbQoKLSBJdCBpcyBub3QgcG9zc2libGUgZm9yIGEgZGlzdHJpYnV0ZWQgc3lzdGVtIHRvIHNpbXVsdGFuZW91c2x5IHByb3ZpZGUgY29uc2lzdGVuY3ksIGF2YWlsYWJpbGl0eQphbmQgcGFydGl0aW9uIHRvbGVyYW5jZS4gT25seSAyIGNhbiBiZSBwaWNrZWQuCgotIEluIHByYWN0aWNlIG5ldHdvcmtzIHBhcnRpdGlvbiB3aGV0aGVyIHlvdSB3YW50IGl0IG9yIG5vdCwgc28gdGhlIHJlYWwgY2hvaWNlIGlzOiBkdXJpbmcgYSBwYXJ0aXRpb24sIGZhdm9yIGNvbnNpc3RlbmN5IG9yIGZhdm9yIGF2YWlsYWJpbGl0eS4KCiMjIERpc3RyaWJ1dGVkIFN5c3RlbXMKCi0gQSBjb2xsZWN0aW9uIG9mIGluZGVwZW5kZW50IG5vZGVzIHdvcmtpbmcgdG9nZXRoZXIsIG92ZXIgYSBuZXR3b3JrLCB0byBhY2hpZXZlIHRoZSBzYW1lIGdvYWwuCgojIyBTeXN0ZW0gRGVzaWduCgpUaGlua2luZyBhYm91dCBzY2FsYWJpbGl0eSBjb3VsZCBzYXZlIHRpbWUgYW5kIG1vbmV5LgoKIyMjIFNjYWxhYmlsaXR5IAoKVGhlIGNhcGFiaWxpdHkgb2YgYSBzeXN0ZW0gdG8gZ3JvdyBhbmQgaGFuZGxlIGFuIGluY3JlYXNpbmcgZGVtYW5kIHdpdGhvdXQgbG9zaW5nIHBlcmZvcm1hbmNlLgpBIHNjYWxhYmxlIHN5c3RlbSBiYWxhbmNlcyB0aGUgbG9hZCBiZXR3ZWVuIGFsbCB0aGUgcGFydGljaXBhdGluZyBub2Rlcy4KCi0gSG9yaXpvbnRhbCBzY2FsaW5nOiBhZGRpbmcgbW9yZSBub2RlcyBpbnRvIHlvdXIgcG9vbCBvZiByZXNvdXJjZXMKLSBWZXJ0aWNhbCBzY2FsaW5nOiBhZGRpbmcgbW9yZSBDUFUsIFJBTSBvciBzdG9yYWdlIHRvIGFuIGV4aXN0aW5nIHNlcnZlci4KCiMjIyBSZWxpYWJpbGl0eQoKSW4gY2FzZSBvZiBmYWlsdXJlIHRoZSBzeXN0ZW0gd2lsbCByZW1haW4gb3BlcmF0aXZlLiBJdCB3aWxsIGtlZXAgZGVsaXZlcmluZyBpdHMgc2VydmljZXMgZXZlbiB3aGVuIHNvbWUgb2YgdGhlIGNvbXBvbmVudHMgYXJlIGZhaWxpbmcuCgotIFJlZHVuZGFuY3kgYW5kIFJlcGxpY2F0aW9uIFN0cmF0ZWdpZXMKClJlZHVuZGFuY3k6IGR1cGxpY2F0aW9uIG9mIG5vZGVzLCByZW1vdmVzIGEgc2luZ2xlIHBvaW50IG9mIGZhaWx1cmUuClJlcGxpY2F0aW9uOiBjb3B5aW5nIGRhdGEgYWNyb3NzIG11bHRpcGxlIG5vZGVzIHRvIGtlZXAgdGhlbSBpbiBzeW5jIChlLmcuIGxlYWRlci9mb2xsb3dlcikuCgoKIyMjIEF2YWlsYWJpbGl0eSAKCkl0IGlzIHRoZSBwZXJjZW50YWdlIG9mIHRpbWUgdGhhdCBhIHN5c3RlbSBpcyBvcGVyYXRpdmUsIGluY2x1ZGluZyB0aHJvdWdoIGZhaWx1cmVzLgpBbiBBUCBzeXN0ZW0gc2FjcmlmaWNlcyBjb25zaXN0ZW5jeSB0byBzdGF5IHJlc3BvbnNpdmUgYXMgbXVjaCBhcyBwb3NzaWJsZS4KCgojIyBDb25zaXN0ZW5jeSBQYXR0ZXJucwogIAotIFRoZSBkYXRhIG11c3QgYmUgdGhlIHNhbWUgYWNyb3NzIHRoZSBzeXN0ZW0uIEFsbCB0aGUgdXNlcnMgZ2V0IHRoZSBzYW1lIGRhdGEgYXQgdGhlIHNhbWUgdGltZSBpbmRlcGVuZGVudGx5IG9mIHRoZSBub2RlLgoKIyMjIEV2ZW50dWFsIGNvbnNpc3RlbmN5CgotIFRoZSBpbmNvbnNpc3RlbmN5IGlzIHRlbXBvcmFyeSBhbmQgZXZlbnRzIGFyZSBldmVudHVhbGx5IHN5bmNocm9uaXplZCBldmVyeXdoZXJlLgoKIyMjIFN0cm9uZyBjb25zaXN0ZW5jeQoKLSBUaGUgZGF0YSBzeW5jaHJvbml6YXRpb24gaXMgYSBwcmlvcml0eS4gRXZlcnkgcmVhZCBvcGVyYXRpb24gbXVzdCBhbHdheXMgcmVmbGVjdCB0aGUgbGF0ZXN0IHZhbHVlLgoKIyMjIENhdXNhbCBjb25zaXN0ZW5jeQoKLSBPcGVyYXRpb25zIHRoYXQgYXJlIGNhdXNhbGx5IHJlbGF0ZWQgKG9uZSBkZXBlbmRzIG9uIHRoZSBvdGhlcikgbXVzdCBiZSBzZWVuIGluIHRoZSBzYW1lIG9yZGVyIGJ5IGV2ZXJ5b25lLiBVbnJlbGF0ZWQgKGNvbmN1cnJlbnQpIG9wZXJhdGlvbnMgYXJlIGZyZWUgdG8gYXBwZWFyIGluIGEgZGlmZmVyZW50IG9yZGVyIGZvciBkaWZmZXJlbnQgb2JzZXJ2ZXJzLgoKIyMgUGFydGl0aW9uIFRvbGVyYW5jZQoKVGhlIHN5c3RlbSBrZWVwcyB3b3JraW5nIGV2ZW4gd2hlbiB0aGUgbmV0d29yayBiZXR3ZWVuIG5vZGVzIGJyZWFrcyBkb3duIGFuZCBzb21lIG5vZGVzIGNhbid0IHRhbGsgdG8gZWFjaCBvdGhlciwgbm90IGp1c3Qgd2hlbiBhIG5vZGUgaXMgZG93bi4KCiMjIyBSZWxpYWJpbGl0eSB2cyBBdmFpbGFiaWxpdHkKCklGIElUIElTIFJFTElBQkxFID0+IElUIElTIEFWQUlMQUJMRSBidXQgYmVpbmcgQVZBSUxBQkxFIGRvZXMgbm90IG1lYW4gaXQgaXMgUkVMSUFCTEUuCgojIyBPdGhlciBjb25jZXB0cwoKIyMjIElkZW1wb3RlbmN5IAoKQSByZXBlYXRlZCBvcGVyYXRpb24gd2lsbCBhbHdheXMgcHJvZHVjZSB0aGUgc2FtZSByZXN1bHQsIG5vIG1hdHRlciBob3cgbWFueSB0aW1lcyBpdCBydW5zLgoKIyMgRWZmaWNpZW5jeQoKLSBSZXNwb25zZSB0aW1lOiBpdCBpcyB0aGUgbGF0ZW5jeS4gTG93IGxhdGVuY3kgPT4gaGlnaGx5IHJlc3BvbnNpdmUgc3lzdGVtLgotIFRocm91Z2hwdXQ6IHRoZSByYXRlIG9mIGRhdGEgb3Igb3BlcmF0aW9ucyBhIHN5c3RlbSBwcm9jZXNzZXMgcGVyIHVuaXQgb2YgdGltZSwgZS5nLiByZXF1ZXN0cy9zZWMgb3IgYnl0ZXMvc2VjLgoKIyMgTW9ub2xpdGggdnMgTWljcm9zZXJ2aWNlcwoKIyMjIE1vbm9saXRoCi0gQSBzaW5nbGUgY29kZWJhc2UgYW5kIGRlcGxveWFibGUgdW5pdC4KLSBDb3VwbGluZyBjb21wb25lbnRzCi0gc2luZ2xlIHBvaW50IG9mIGZhaWx1cmUKCiMjIyBNaWNyb3NlcnZpY2VzCgotIEluZGVwZW5kZW50IHNlbGYgY29udGFpbmVkIHNlcnZpY2VzCi0gZWFzaWVyIHRvIHNjYWxlIGFuZCBkZXBsb3kKLSBjYW4gdXNlIG11bHRpcGxlIHRlY2hub2xvZ2llcwotIGluY3JlYXNlIGNvbXBsZXhpdHkKLSBuZXR3b3JrIGxhdGVuY3k=</script>
+<script>
+  const b64 = document.getElementById("md-source").textContent.trim();
+  const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+  const md = new TextDecoder("utf-8").decode(bytes);
+  document.getElementById("content").innerHTML = marked.parse(md);
+</script>
+
+</body>
+</html>

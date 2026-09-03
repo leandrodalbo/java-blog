@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Except Self · Systems &amp; Software Concepts</title>
+<meta name="description" content="Build a result array without using division.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Product Except Self · Systems &amp; Software Concepts">
+<meta property="og:description" content="Build a result array without using division.">
+<meta property="og:url" content="https://softwaresystems.blog/entry-12/exercise.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Product Except Self · Systems &amp; Software Concepts">
+<meta name="twitter:description" content="Build a result array without using division.">
+<script src="../theme.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script src="../tailwind.config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* keep ASCII/box-drawing diagrams intact: no wrapping, scroll if too wide */
+  .prose pre { white-space: pre; overflow-x: auto; }
+</style>
+</head>
+<body class="font-sans bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200 min-h-screen">
+
+<header class="border-b border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 py-6 flex items-center justify-between">
+    <a href="../index.html" class="text-sm font-medium text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300">← Systems &amp; Software Concepts</a>
+    <button
+      onclick="toggleTheme()"
+      aria-label="Toggle dark mode"
+      title="Toggle dark mode"
+      class="shrink-0 rounded-full border border-stone-200 bg-white p-2 text-base leading-none hover:border-amber-300 dark:border-stone-700 dark:bg-stone-800 dark:hover:border-amber-500"
+    >
+      <span class="dark:hidden">🌙</span>
+      <span class="hidden dark:inline">☀️</span>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 sm:px-8 py-10">
+  <article
+    id="content"
+    class="prose prose-lg prose-stone dark:prose-invert max-w-none font-serif
+           prose-headings:font-sans prose-headings:font-semibold
+           prose-code:font-mono prose-pre:font-mono
+           prose-a:text-amber-700 dark:prose-a:text-amber-400"
+  ></article>
+</main>
+
+<!-- Markdown source, base64-encoded so it ships inline with no fetch() of a
+     separate file — that's what breaks when this page is opened via file://. -->
+<script id="md-source" type="text/plain">IyBQcm9kdWN0IEV4Y2VwdCBTZWxmCgpCdWlsZCBhIHJlc3VsdCBhcnJheSB3aXRob3V0IHVzaW5nIGRpdmlzaW9uLgoKIyMgUHJvYmxlbQoKR2l2ZW4gYW4gYXJyYXkgb2YgaW50ZWdlcnMsIHJldHVybiBhIG5ldyBhcnJheSB3aGVyZSBlYWNoIGluZGV4IGhvbGRzCnRoZSBwcm9kdWN0IG9mIGV2ZXJ5IG90aGVyIGVsZW1lbnQsIGV4Y2x1ZGluZyBpdHNlbGYuIERpdmlzaW9uIGlzbid0CmFsbG93ZWQsIHNpbmNlIGRpdmlkaW5nIGJ5IGEgemVybyBlbGVtZW50IHRocm93cyBhbiBleGNlcHRpb24uCgpgYGAKaW5wdXQ6ICBbMSwgMiwgMywgNF0Kb3V0cHV0OiBbMjQsIDEyLCA4LCA2XQoKb3V0cHV0WzBdID0gMiozKjQgPSAyNApvdXRwdXRbMV0gPSAxKjMqNCA9IDEyCm91dHB1dFsyXSA9IDEqMio0ID0gOApvdXRwdXRbM10gPSAxKjIqMyA9IDYKYGBgCgojIyBUZXN0cyAoUkVEKQoKYGBgamF2YQpwcml2YXRlIFByb2R1Y3RFeGNlcHRTZWxmIHVuZGVyVGVzdCA9IG5ldyBQcm9kdWN0RXhjZXB0U2VsZigpOwoKQFRlc3QKcHVibGljIHZvaWQgc2hvdWxkUmV0dXJuUHJvZHVjdE9mRXZlcnlPdGhlckVsZW1lbnQoKXsKICAgIGFzc2VydFRoYXQodW5kZXJUZXN0LnByb2R1Y3RFeGNlcHRTZWxmKG5ldyBpbnRbXXsxLCAyLCAzLCA0fSkpCiAgICAgICAgICAgIC5jb250YWluc0V4YWN0bHkoMjQsIDEyLCA4LCA2KTsKfQoKQFRlc3QKcHVibGljIHZvaWQgc2hvdWxkSGFuZGxlVGhyZWVFbGVtZW50cygpewogICAgYXNzZXJ0VGhhdCh1bmRlclRlc3QucHJvZHVjdEV4Y2VwdFNlbGYobmV3IGludFtdezIsIDMsIDR9KSkKICAgICAgICAgICAgLmNvbnRhaW5zRXhhY3RseSgxMiwgOCwgNik7Cn0KCkBUZXN0CnB1YmxpYyB2b2lkIHNob3VsZEhhbmRsZUFTaW5nbGVaZXJvKCl7CiAgICBhc3NlcnRUaGF0KHVuZGVyVGVzdC5wcm9kdWN0RXhjZXB0U2VsZihuZXcgaW50W117MCwgMiwgM30pKQogICAgICAgICAgICAuY29udGFpbnNFeGFjdGx5KDYsIDAsIDApOwp9CgpAVGVzdApwdWJsaWMgdm9pZCBzaG91bGRIYW5kbGVNdWx0aXBsZVplcm9zKCl7CiAgICBhc3NlcnRUaGF0KHVuZGVyVGVzdC5wcm9kdWN0RXhjZXB0U2VsZihuZXcgaW50W117MCwgMCwgM30pKQogICAgICAgICAgICAuY29udGFpbnNFeGFjdGx5KDAsIDAsIDApOwp9CmBgYAoKIyMgSW1wbGVtZW50YXRpb24gKEdSRUVOKQoKYGBgamF2YQpwdWJsaWMgaW50W10gcHJvZHVjdEV4Y2VwdFNlbGYoaW50W10gbnVtcykKewogICAgaW50IG4gPSBudW1zLmxlbmd0aDsKCiAgICBpbnRbXSBsZWZ0cyA9IG5ldyBpbnRbbl07CiAgICBpbnQgcnVubmluZ0xlZnQgPSAxOwoKICAgIGZvciAoaW50IGkgPSAwOyBpIDwgbjsgaSsrKQogICAgewogICAgICAgIGxlZnRzW2ldID0gcnVubmluZ0xlZnQ7CiAgICAgICAgcnVubmluZ0xlZnQgKj0gbnVtc1tpXTsKICAgIH0KCiAgICBpbnRbXSByaWdodHMgPSBuZXcgaW50W25dOwogICAgaW50IHJ1bm5pbmdSaWdodCA9IDE7CiAgICAKICAgIGZvciAoaW50IGkgPSBuIC0gMTsgaSA+PSAwOyBpLS0pCiAgICB7CiAgICAgICAgcmlnaHRzW2ldID0gcnVubmluZ1JpZ2h0OwogICAgICAgIHJ1bm5pbmdSaWdodCAqPSBudW1zW2ldOwogICAgfQoKICAgIGludFtdIHJlc3VsdCA9IG5ldyBpbnRbbl07CiAgICBmb3IgKGludCBpID0gMDsgaSA8IG47IGkrKykKICAgIHsKICAgICAgICByZXN1bHRbaV0gPSBsZWZ0c1tpXSAqIHJpZ2h0c1tpXTsKICAgIH0KCiAgICByZXR1cm4gcmVzdWx0Owp9CmBgYAoKVHdvIGJ1aWxkLXVwIHBhc3NlcyByZXBsYWNlIHRoZSBvbmUgZGl2aXNpb24tYmFzZWQgcGFzczoKCjEuIGBsZWZ0c1tpXWAgaXMgdGhlIHByb2R1Y3Qgb2YgZXZlcnl0aGluZyBiZWZvcmUgaW5kZXggYGlgLiBXYWxrIGxlZnQKICAgdG8gcmlnaHQsIGNhcnJ5aW5nIGEgcnVubmluZyBwcm9kdWN0IGZvcndhcmQsIGFuZCB3cml0ZSBpdCBkb3duCiAgICpiZWZvcmUqIGZvbGRpbmcgaW4gYG51bXNbaV1gLgoyLiBgcmlnaHRzW2ldYCBpcyB0aGUgcHJvZHVjdCBvZiBldmVyeXRoaW5nIGFmdGVyIGluZGV4IGBpYCwgdGhlIHNhbWUKICAgaWRlYSB3YWxraW5nIHJpZ2h0IHRvIGxlZnQuCjMuIGByZXN1bHRbaV0gPSBsZWZ0c1tpXSAqIHJpZ2h0c1tpXWAgY29tYmluZXMgYm90aCBoYWx2ZXMuCgpgYGAKbnVtczogICAgMSAgICAyICAgIDMgICAgNApsZWZ0czogICAxICAgIDEgICAgMiAgICA2CnJpZ2h0czogIDI0ICAgMTIgICA0ICAgIDEKcmVzdWx0OiAgMjQgICAxMiAgIDggICAgNgpgYGAKCiMjIFdoeSBubyBkaXZpc2lvbgoKVGhlIG9idmlvdXMgc2hvcnRjdXQgaXMgdG8gbXVsdGlwbHkgYWxsIHRoZSBudW1iZXJzIG9uY2UsIHRoZW4gZGl2aWRlCm91dCBgbnVtc1tpXWAgZm9yIGVhY2ggaW5kZXguIFRoYXQgYnJlYWtzIGFzIHNvb24gYXMgb25lIGVsZW1lbnQgaXMKemVybywgc2luY2UgZGl2aWRpbmcgYnkgemVybyBpc24ndCBhbGxvd2VkLiBUaGUgemVybyB0ZXN0IGNhc2VzIGFib3ZlCmFyZSB0aGVyZSB0byBjYXRjaCB0aGF0IHNob3J0Y3V0LgoKIyMgQ29tcGxleGl0eQoKVGltZTogTyhuKSwgdGhyZWUgcGFzc2VzIG92ZXIgdGhlIGFycmF5LgpTcGFjZTogTyhuKSBmb3IgYGxlZnRzYCBhbmQgYHJpZ2h0c2AsIHBsdXMgdGhlIE8obikgb3V0cHV0IGFycmF5LiBUaGUKdHdvIGV4dHJhIGFycmF5cyBjYW4gYmUgZHJvcHBlZCBieSB3cml0aW5nIHN0cmFpZ2h0IGludG8gdGhlIHJlc3VsdAphcnJheSBhbmQga2VlcGluZyB0aGUgcnVubmluZyByaWdodC10by1sZWZ0IHByb2R1Y3QgaW4gYSBzaW5nbGUKdmFyaWFibGUsIHdoaWNoIGJyaW5ncyBleHRyYSBzcGFjZSBkb3duIHRvIE8oMSkuCg==</script>
+<script>
+  const b64 = document.getElementById("md-source").textContent.trim();
+  const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+  const md = new TextDecoder("utf-8").decode(bytes);
+  document.getElementById("content").innerHTML = marked.parse(md);
+</script>
+
+</body>
+</html>
