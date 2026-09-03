@@ -1,15 +1,23 @@
-# Java, One Concept at a Time — Interview-Prep Blog
+# Systems & Software Concepts — Interview-Prep Blog
 
 ## What this is
 
-Leandro is getting back to the basics — revisiting CS/Java fundamentals and
-writing them up the way he wishes they'd been explained to him the first
-time. Each working session he writes theory notes in a markdown file, and
-(most days) one exercise gets a short write-up too. Over time this becomes
-"Java, One Concept at a Time", a small static blog shared publicly: an
-`index.html` (Tailwind) linking to every concept page. The blog must be
-readable by beginners but not shallow for seniors — correct terminology,
-clear diagrams where they help, and honest complexity analysis.
+Leandro is getting back to the basics — revisiting software fundamentals
+and systems design and writing them up the way he wishes they'd been
+explained to him the first time. Each working session he writes theory
+notes in a markdown file, and (most sessions) one exercise gets a short
+write-up too. Over time this becomes "Systems & Software Concepts", a
+small static blog shared publicly: an `index.html` (Tailwind) linking to
+every concept page. The blog started Java-only and has since grown past
+that into broader backend/systems territory (Spring internals, sharding,
+event-driven architecture) — code examples are still Java (that's the
+`practice/` project's language), but the blog itself isn't scoped to Java
+specifically anymore, hence the name. The blog must be readable by
+beginners but not shallow for seniors — correct terminology, clear
+diagrams where they help, and honest complexity analysis.
+
+Renamed from "Java, One Concept at a Time" on `dailyjava.blog`; see the
+rebrand note in the Progress log below for what changed structurally.
 
 ## Public repo — handle with care
 
@@ -20,34 +28,42 @@ footer — no employer/recruiter names without asking first.
 ## Structure
 
 - `web/` — the blog: fully static, no server, works opened directly via
-  `file://`. Source of truth is the `.md` files; `.html`/`days.js` are
+  `file://`. Source of truth is the `.md` files; `.html`/`entries.js` are
   generated — never hand-edit those.
-  - `day-N/concepts.md` — theory notes for day N (one topic area per day).
-  - `day-N/exercise.md` — the day's exercise write-up: problem description,
-    test suite, implementation. Picked from `practice/`, may be something
-    already implemented on an earlier day or something new.
+  - `entry-N/concepts.md` — theory notes for entry N (one topic area per
+    entry). First line is `# Entry N: Title` — keep the `Entry N` prefix,
+    it drives the label shown on the homepage.
+  - `entry-N/exercise.md` — the entry's exercise write-up: problem
+    description, test suite, implementation. Picked from `practice/`, may
+    be something already implemented on an earlier entry or something new.
   - `_template.html` — shared page shell (Tailwind + marked, both via CDN).
   - `build.py` — run after any `.md` edit: `python3 build.py`. Renders each
-    `day-N/*.md` into a sibling `.html` (markdown embedded inline as base64,
-    so no `fetch()` — that's what breaks under `file://`) and regenerates
-    `days.js`, which `index.html` reads to build the day list.
-  - `index.html` — the blog homepage, links to every generated `day-N/*.html`.
-- `practice/` — Java (Maven, JUnit 5 + AssertJ) exercise sprint.
+    `entry-N/*.md` into a sibling `.html` (markdown embedded inline as
+    base64, so no `fetch()` — that's what breaks under `file://`) and
+    regenerates `entries.js`, which `index.html` reads to build the entry
+    list.
+  - `index.html` — the blog homepage, links to every generated
+    `entry-N/*.html`.
+- `practice/` — Java (Maven, JUnit 5 + AssertJ) exercise sprint. Its own
+  `DayN.java`/`DayNTest.java` naming predates the blog rebrand and is
+  unrelated to the `entry-N` web folders — leave it as-is, see
+  `practice/EXERCISES.md`.
   - `EXERCISES.md` — the 7-day interview-prep plan and checklist, source of
     truth for what's done vs pending.
   - `src/main/java/org/example/DayN.java` — implementations.
   - `src/test/java/org/example/DayNTest.java` — tests (TDD: written first).
 
-## Daily workflow
+## Working session workflow
 
-1. Create `web/day-N/` and write/refine `concepts.md` — theory for the day.
-2. Pick one exercise from `practice/` for `day-N/exercise.md`:
+1. Create `web/entry-N/` and write/refine `concepts.md` — theory for the
+   entry.
+2. Pick one exercise from `practice/` for `entry-N/exercise.md`:
    - Already implemented → just write it up (problem, existing tests, existing
      code). No new coding.
    - Not yet implemented → do a short TDD cycle: SPECIFY the problem in
      plain language, propose failing tests (RED) and wait for approval,
      then implement (GREEN). Don't weaken tests to force a pass.
-3. Run `python3 web/build.py` to regenerate the static pages and day list.
+3. Run `python3 web/build.py` to regenerate the static pages and entry list.
 
 Start easy and ramp up — early exercises should be simple enough to explain
 to a beginner in a few minutes, even if there's a senior-level angle
@@ -100,3 +116,23 @@ to a beginner in a few minutes, even if there's a senior-level angle
   `web/day-6-extra/exercise.md` — rotate an array in place by k (reversal
   trick), picked from `practice` Day4 (already implemented, `rotateArray`
   was unused in the blog until now).
+- **Entries 7–12**: published (`web/day-7` through `web/day-12` at the
+  time) but never logged here individually — same pre-existing gap as
+  Day 5/6 above.
+- **Rebrand** (2026-09-03): the blog outgrew "Java, One Concept at a
+  Time" — Entry 9 (sharding/replication/indexing) and Entry 12 (reactive
+  Spring, event-driven architecture, API gateways, security internals)
+  are senior-round systems-design material, not Java fundamentals.
+  Renamed to "Systems & Software Concepts", moving off `dailyjava.blog`
+  onto `softwaresystems.blog`. Every `web/day-N/` folder was renamed to
+  `web/entry-N/` (`git mv`, history preserved), each `concepts.md` H1
+  changed from `# Day N: ...` to `# Entry N: ...` (two titles that named
+  "Java" directly were reworded: Entry 0 is now "Inside the JVM", Entry 2
+  extra is now "Collections, Enums, Exceptions & GC" — prose inside those
+  pages still says "Java" where it's factually accurate, only the
+  title/branding layer was scrubbed). `build.py`, `_template.html`, and
+  `index.html` were updated to match: `days.js` is now `entries.js`, the
+  `day` field is now `number`. The `practice/` project (Java source,
+  `DayN.java` naming) was deliberately left untouched — the rename is
+  scoped to the public `web/` blog and its branding, not the exercise
+  sprint's internal naming.
