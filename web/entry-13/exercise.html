@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Best Profit · Systems &amp; Software Concepts</title>
+<meta name="description" content="The classic &quot;buy low, sell high&quot; problem, solved in a single pass.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Best Profit · Systems &amp; Software Concepts">
+<meta property="og:description" content="The classic &quot;buy low, sell high&quot; problem, solved in a single pass.">
+<meta property="og:url" content="https://softwaresystems.blog/entry-13/exercise.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Best Profit · Systems &amp; Software Concepts">
+<meta name="twitter:description" content="The classic &quot;buy low, sell high&quot; problem, solved in a single pass.">
+<script src="../theme.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script src="../tailwind.config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* keep ASCII/box-drawing diagrams intact: no wrapping, scroll if too wide */
+  .prose pre { white-space: pre; overflow-x: auto; }
+</style>
+</head>
+<body class="font-sans bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200 min-h-screen">
+
+<header class="border-b border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 py-6 flex items-center justify-between">
+    <a href="../index.html" class="text-sm font-medium text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300">← Systems &amp; Software Concepts</a>
+    <button
+      onclick="toggleTheme()"
+      aria-label="Toggle dark mode"
+      title="Toggle dark mode"
+      class="shrink-0 rounded-full border border-stone-200 bg-white p-2 text-base leading-none hover:border-amber-300 dark:border-stone-700 dark:bg-stone-800 dark:hover:border-amber-500"
+    >
+      <span class="dark:hidden">🌙</span>
+      <span class="hidden dark:inline">☀️</span>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 sm:px-8 py-10">
+  <article
+    id="content"
+    class="prose prose-lg prose-stone dark:prose-invert max-w-none font-serif
+           prose-headings:font-sans prose-headings:font-semibold
+           prose-code:font-mono prose-pre:font-mono
+           prose-a:text-amber-700 dark:prose-a:text-amber-400"
+  ></article>
+</main>
+
+<!-- Markdown source, base64-encoded so it ships inline with no fetch() of a
+     separate file — that's what breaks when this page is opened via file://. -->
+<script id="md-source" type="text/plain">IyBCZXN0IFByb2ZpdAoKVGhlIGNsYXNzaWMgImJ1eSBsb3csIHNlbGwgaGlnaCIgcHJvYmxlbSwgc29sdmVkIGluIGEgc2luZ2xlIHBhc3MuCgojIyBQcm9ibGVtCgpHaXZlbiBhIG5vbi1lbXB0eSBhcnJheSBvZiBkYWlseSBzdG9jayBwcmljZXMsIGZpbmQgdGhlIG1heGltdW0gcHJvZml0IGZyb20gYnV5aW5nIG9uIG9uZSBkYXkgYW5kIHNlbGxpbmcgb24gYSBsYXRlciBkYXkuIFlvdSBjYW4gb25seSBob2xkIG9uZSBzaGFyZSBhdCBhIHRpbWUsIGFuZCB5b3UgbXVzdCBidXkgYmVmb3JlIHlvdSBzZWxsLgoKYGBgCnByaWNlczogWzcsIDEsIDUsIDMsIDYsIDRdCgpidXkgYXQgMSAoZGF5IDIpLCBzZWxsIGF0IDYgKGRheSA1KSAtPiBwcm9maXQgPSA1CmBgYAoKIyMgSW1wbGVtZW50YXRpb24KCmBgYGphdmEKcHVibGljIGludCBtYXhQcm9maXQoaW50W10gdmFsdWVzKSB7CiAgICBpbnQgbWluUHJpY2UgPSB2YWx1ZXNbMF07CiAgICBpbnQgbWF4UHJvZml0ID0gMDsKCiAgICBmb3IgKGludCBpID0gMTsgaSA8IHZhbHVlcy5sZW5ndGg7IGkrKykgewogICAgICAgIG1heFByb2ZpdCA9IE1hdGgubWF4KG1heFByb2ZpdCwgdmFsdWVzW2ldIC0gbWluUHJpY2UpOwogICAgICAgIG1pblByaWNlID0gTWF0aC5taW4obWluUHJpY2UsIHZhbHVlc1tpXSk7CiAgICB9CgogICAgcmV0dXJuIG1heFByb2ZpdDsKfQpgYGAKCk9uZSBwYXNzLCB0d28gdGhpbmdzIHRyYWNrZWQgYXMgaXQgZ29lczoKCi0gYG1pblByaWNlYDogdGhlIGxvd2VzdCBwcmljZSBzZWVuICpzbyBmYXIqLCB0aGUgYmVzdCBwb3NzaWJsZSBidXkgZGF5IHVwIHRvIHRoaXMgcG9pbnQuCi0gYG1heFByb2ZpdGA6IHRoZSBiZXN0IGBwcmljZSAtIG1pblByaWNlYCBzZWVuIHNvIGZhciwgaS5lLiBzZWxsaW5nIHRvZGF5IGFnYWluc3QgdGhlIGNoZWFwZXN0IGVhcmxpZXIgZGF5LgoKQm90aCB1cGRhdGUgZXZlcnkgaXRlcmF0aW9uLiBQcm9maXQgaXMgY2hlY2tlZCAqYmVmb3JlKiB0aGUgbWluaW11bQppcyB1cGRhdGVkLCBzbyBgbWluUHJpY2VgIGFsd2F5cyByZWZsZWN0cyBhIGRheSBzdHJpY3RseSBlYXJsaWVyIHRoYW4KdG9kYXksIG1hdGNoaW5nIHRoZSBydWxlIHRoYXQgeW91IG11c3QgYnV5IGJlZm9yZSB5b3Ugc2VsbC4KCiMjIENvbXBsZXhpdHkKClRpbWU6IE8obiksIG9uZSBwYXNzIG92ZXIgdGhlIGFycmF5LgpTcGFjZTogTygxKSwganVzdCB0aGUgdHdvIHJ1bm5pbmcgdmFsdWVzLgo=</script>
+<script>
+  const b64 = document.getElementById("md-source").textContent.trim();
+  const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+  const md = new TextDecoder("utf-8").decode(bytes);
+  document.getElementById("content").innerHTML = marked.parse(md);
+</script>
+
+</body>
+</html>

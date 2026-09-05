@@ -164,5 +164,16 @@ const entries = [
       "title": "Product Except Self",
       "src": "entry-12/exercise.html"
     }
+  },
+  {
+    "number": 13,
+    "label": "Entry 13",
+    "date": "2026-09-05",
+    "title": "Entry 13: Real Software Products",
+    "concepts": "entry-13/concepts.html",
+    "exercise": {
+      "title": "Best Profit",
+      "src": "entry-13/exercise.html"
+    }
   }
 ];

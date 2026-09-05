@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entry 13: Real Software Products · Systems &amp; Software Concepts</title>
+<meta name="description" content="Building, testing, and deploying software involves a lot of repetitive steps. Doing them by hand costs time and is error-prone.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Entry 13: Real Software Products · Systems &amp; Software Concepts">
+<meta property="og:description" content="Building, testing, and deploying software involves a lot of repetitive steps. Doing them by hand costs time and is error-prone.">
+<meta property="og:url" content="https://softwaresystems.blog/entry-13/concepts.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Entry 13: Real Software Products · Systems &amp; Software Concepts">
+<meta name="twitter:description" content="Building, testing, and deploying software involves a lot of repetitive steps. Doing them by hand costs time and is error-prone.">
+<script src="../theme.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script src="../tailwind.config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* keep ASCII/box-drawing diagrams intact: no wrapping, scroll if too wide */
+  .prose pre { white-space: pre; overflow-x: auto; }
+</style>
+</head>
+<body class="font-sans bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200 min-h-screen">
+
+<header class="border-b border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 py-6 flex items-center justify-between">
+    <a href="../index.html" class="text-sm font-medium text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300">← Systems &amp; Software Concepts</a>
+    <button
+      onclick="toggleTheme()"
+      aria-label="Toggle dark mode"
+      title="Toggle dark mode"
+      class="shrink-0 rounded-full border border-stone-200 bg-white p-2 text-base leading-none hover:border-amber-300 dark:border-stone-700 dark:bg-stone-800 dark:hover:border-amber-500"
+    >
+      <span class="dark:hidden">🌙</span>
+      <span class="hidden dark:inline">☀️</span>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 sm:px-8 py-10">
+  <article
+    id="content"
+    class="prose prose-lg prose-stone dark:prose-invert max-w-none font-serif
+           prose-headings:font-sans prose-headings:font-semibold
+           prose-code:font-mono prose-pre:font-mono
+           prose-a:text-amber-700 dark:prose-a:text-amber-400"
+  ></article>
+</main>
+
+<!-- Markdown source, base64-encoded so it ships inline with no fetch() of a
+     separate file — that's what breaks when this page is opened via file://. -->
+<script id="md-source" type="text/plain">IyBFbnRyeSAxMzogUmVhbCBTb2Z0d2FyZSBQcm9kdWN0cwoKIyMgQXV0b21hdGlvbgoKQnVpbGRpbmcsIHRlc3RpbmcsIGFuZCBkZXBsb3lpbmcgc29mdHdhcmUgaW52b2x2ZXMgYSBsb3Qgb2YgcmVwZXRpdGl2ZSBzdGVwcy4gRG9pbmcgdGhlbSBieSBoYW5kIGNvc3RzIHRpbWUgYW5kIGlzIGVycm9yLXByb25lLgoKQXV0b21hdGluZyBwaXBlbGluZXMgaXMgd2hhdCBtYWtlcyBpdCBwb3NzaWJsZSB0byBzaGlwIHNtYWxsZXIgY2hhbmdlcywgbW9yZSBvZnRlbiwgd2l0aCBtb3JlIGNvbmZpZGVuY2UuCgpgYGAKY29tbWl0IC0+IGJ1aWxkIC0+IHRlc3QgLT4gcGFja2FnZSAtPiBkZXBsb3kKICAgICAgICAgIFxfX19fX19fX19fX19fX19fX19fX19fX19fX19fLwogICAgICAgICAgICAgIGF1dG9tYXRlZCwgbm90IG1hbnVhbApgYGAKCiMjIyBDb250aW51b3VzIEludGVncmF0aW9uIChDSSkKCkV2ZXJ5IGNvbW1pdCB0cmlnZ2VycyBhbiBhdXRvbWF0aWMgYnVpbGQgYW5kIHRlc3QgcnVuLgoKLSBXZSBnZXQgZmVlZGJhY2sgaW4gbWludXRlcy4KLSBBIGJyb2tlbiBidWlsZCBpcyB2aXNpYmxlIGltbWVkaWF0ZWx5LCBhbmQgY2hlYXAgdG8gZml4LgoKIyMjIENvbnRpbnVvdXMgRGVsaXZlcnkgdnMuIENvbnRpbnVvdXMgRGVwbG95bWVudAoKQm90aCBzdGFydCBmcm9tIHRoZSBzYW1lIHBsYWNlOiBldmVyeSBidWlsZCB0aGF0IHBhc3NlcyBDSSBpcyB0cmVhdGVkIGFzIGEgcmVsZWFzZSBjYW5kaWRhdGUsIHJlYWR5IHRvIGdvIHRvIHByb2R1Y3Rpb24gYXQgYW55IHRpbWUuIFRoZSBkaWZmZXJlbmNlIGlzIHdoYXQgaGFwcGVucyBuZXh0LgoKLSAqKkNvbnRpbnVvdXMgRGVsaXZlcnkqKjogYSBodW1hbiBzdGlsbCBkZWNpZGVzICp3aGVuKiB0byByZWxlYXNlLgoKLSAqKkNvbnRpbnVvdXMgRGVwbG95bWVudCoqOiB0aGF0IGRlY2lzaW9uIGlzIGF1dG9tYXRlZCB0b28uIEV2ZXJ5IGJ1aWxkIHRoYXQgcGFzc2VzIHRoZSBwaXBlbGluZSBnb2VzIHRvIHByb2R1Y3Rpb24gd2l0aCBubyBtYW51YWwgZ2F0ZSBhdCBhbGwuCgpFaXRoZXIgd2F5LCByZWxlYXNpbmcgaGFzIHRvIGJlIGEgcm91dGluZSwgbG93LWRyYW1hIGV2ZW50LgoKIyMgQXV0b21hdGVkIFRlc3RzCgpUZXN0cyBhcmUgd2hhdCBtYWtlIENJL0NEIHRydXN0d29ydGh5IGluIHRoZSBmaXJzdCBwbGFjZS4KCi0gQ29uZmlkZW5jZSB0byByZWZhY3RvcjogYSBwYXNzaW5nIHN1aXRlIG1lYW5zIHlvdSBjYW4gcmVzdHJ1Y3R1cmUgY29kZSBhbmQgZmluZCBvdXQgaW1tZWRpYXRlbHkgaWYgeW91IGJyb2tlIHNvbWV0aGluZy4KCi0gRXhlY3V0YWJsZSBkb2N1bWVudGF0aW9uOiBhIHRlc3Qgc2hvd3MgaG93IHRoZSBjb2RlIGlzIG1lYW50IHRvIGJlIHVzZWQsIGFuZCBzdGF5cyBhY2N1cmF0ZSBiZWNhdXNlIGl0IGZhaWxzIHRoZSBtb21lbnQgdGhlIGNvZGUgZHJpZnRzIGZyb20gaXQuCgotIEEgc2FmZXR5IG5ldCBmb3IgdGhlIHdob2xlIHRlYW0sIG5vdCBqdXN0IHdob2V2ZXIgd3JvdGUgdGhlIGNvZGU6IGFueW9uZSBjYW4gY2hhbmdlIGEgZmlsZSB0aGV5IGRpZG4ndCB3cml0ZSBhbmQgdHJ1c3QgdGhlIHN1aXRlIHRvIGNhdGNoIHdoYXQgdGhleSBtaXNzZWQuCgpUaGUgKip0ZXN0aW5nIHB5cmFtaWQqKiBzaGFwZXMgaG93IG1hbnkgb2YgZWFjaCBraW5kIHlvdSB3cml0ZToKCmBgYAogICAgICAgICAvIFwKICAgICAgICAvICAgXAogICAgICAgLyBlMmUgXCAgICAgIGZldyAodGhleSBhcmUgc2xvdykKICAgICAgLy0tLS0tLSBcCiAgICAgLyBpbnRlZ3IuIFwgICAgc29tZSAoY29tcG9uZW50cyB3b3JraW5nIHRvZ2V0aGVyKQogICAgLy0tLS0tLS0tLS0gXAogICAvICAgdW5pdCAgICAgIFwgIG1hbnkgKGZhc3QsIGlzb2xhdGVkIGFuZCBjaGVhcCkKICAvLS0tLS0tLS0tLS0tLS0tXApgYGAKCi0gKipVbml0IHRlc3RzKio6IGEgc2luZ2xlIGNvbXBvbmVudCBpbiBpc29sYXRpb24sIGRlcGVuZGVuY2llcwogIG1vY2tlZCBvciBzdHViYmVkIG91dC4gRmFzdCBlbm91Z2ggdG8gcnVuIG9uIGV2ZXJ5IHNhdmUuCgotICoqSW50ZWdyYXRpb24gdGVzdHMqKjogcmVhbCBwYXJ0cyBvZiB0aGUgc3lzdGVtIHdvcmtpbmcgdG9nZXRoZXIgKGEgc2VydmljZSBhbmQgYSByZWFsIGRhdGFiYXNlLCBmb3IgZXhhbXBsZSkuCgotICoqRW5kLXRvLWVuZCAoRTJFKSB0ZXN0cyoqOiBkcml2ZSB0aGUgd2hvbGUgc3lzdGVtIHRoZSB3YXkgYSB1c2VyIHdvdWxkLgoKIyMgQ2xvdWQgQ29tcHV0aW5nCgo+ICJXZSBnZXQgY29tcHV0aW5nIHJlc291cmNlcyBkeW5hbWljYWxseSwgb24gZGVtYW5kLiIKCldlIHJlbnQgY29tcHV0ZSwgc3RvcmFnZSwgYW5kIG90aGVyIGluZnJhc3RydWN0dXJlIGZyb20gYSBwcm92aWRlciwgYW5kIGNhbiBzY2FsZSB0aGF0IHVzYWdlIHVwIG9yIGRvd24gYXMgZGVtYW5kIGNoYW5nZXMuCgpDbG91ZCBzZXJ2aWNlcyBzaXQgYXQgZGlmZmVyZW50IGxldmVscyBvZiBhYnN0cmFjdGlvbiwgZnJvbSBob3cgbXVjaCB5b3UgbWFuYWdlIHlvdXJzZWxmIHRvIGhvdyBtdWNoIHRoZSBwcm92aWRlciB0YWtlcyBvZmYgeW91ciBoYW5kczoKCi0gKipJYWFTKiogKEluZnJhc3RydWN0dXJlIGFzIGEgU2VydmljZSk6IHJhdyB2aXJ0dWFsIG1hY2hpbmVzLAogIHN0b3JhZ2UsIGFuZCBuZXR3b3JraW5nLiBZb3UgY29udHJvbCB0aGUgT1MgYW5kIGV2ZXJ5dGhpbmcgYWJvdmUgaXQuCgotICoqUGFhUyoqIChQbGF0Zm9ybSBhcyBhIFNlcnZpY2UpOiBhIG1hbmFnZWQgcnVudGltZSB0byBkZXBsb3kgY29kZSBvbnRvOyBubyBzZXJ2ZXJzIHRvIHBhdGNoLCBidXQgbGVzcyBjb250cm9sIG92ZXIgdGhlIGVudmlyb25tZW50LgoKLSAqKkZhYVMqKiAoRnVuY3Rpb24gYXMgYSBTZXJ2aWNlIC8gc2VydmVybGVzcyk6IHlvdSBwcm92aWRlIGEgc2luZ2xlIGZ1bmN0aW9uOyB0aGUgcGxhdGZvcm0gcnVucyBpdCBvbiBkZW1hbmQgYW5kIHNjYWxlcyBpdCBpbnZpc2libHkuCgotICoqU2FhUyoqIChTb2Z0d2FyZSBhcyBhIFNlcnZpY2UpOiBhIGNvbXBsZXRlIGFwcGxpY2F0aW9uLCB1c2VkCiAgYXMtaXMgb3ZlciB0aGUgbmV0d29yay4gTm90aGluZyB0byBkZXBsb3kgb3IgcnVuIGF0IGFsbC4KCiMjIyBQcm9wZXJ0aWVzIG9mIGNsb3VkLW5hdGl2ZSBzeXN0ZW1zCgotICoqU2NhbGFiaWxpdHkqKjogaGFuZGxpbmcgaW5jcmVhc2luZyBsb2FkIGJ5IGFkZGluZyByZXNvdXJjZXMuCgotICoqTG9vc2UgY291cGxpbmcqKjogZGlmZmVyZW50IHBhcnRzIG9mIGEgc3lzdGVtIGtub3cgYXMgbGl0dGxlIGFzIHBvc3NpYmxlIGFib3V0IGVhY2ggb3RoZXIsIHNvIG9uZSBjYW4gY2hhbmdlIHdpdGhvdXQgYnJlYWtpbmcgdGhlIHJlc3QuCgotICoqSGlnaCBjb2hlc2lvbioqOiB0aGluZ3MgdGhhdCBjaGFuZ2UgdG9nZXRoZXIgYXJlIGdyb3VwZWQKICB0b2dldGhlci4KCi0gKipGYXVsdCB0b2xlcmFuY2UqKjogdGhlIHN5c3RlbSBrZWVwcyB3b3JraW5nLCBvciByZWNvdmVycyBvbiBpdHMgb3duLCB3aGVuIGEgcGFydCBvZiBpdCBmYWlscy4KCi0gKipPYnNlcnZhYmlsaXR5Kio6IHRoZSBzeXN0ZW0ncyBpbnRlcm5hbHMgY2FuIGJlIGluZmVycmVkIGZyb20gdGhlIGRhdGEgaXQgZXhwb3NlcyAobG9ncywgbWV0cmljcywgdHJhY2VzKSBpbnN0ZWFkIG9mIGd1ZXNzaW5nLgoKLSAqKk1hbmFnZWFiaWxpdHkqKjogYSBzeXN0ZW0gY2FuIGJlIHVwZGF0ZWQsIGNvbmZpZ3VyZWQsIG9yIHBhdGNoZWQgd2hpbGUgaXQgc3RheXMgdXAgYW5kIHJ1bm5pbmcuCgpBdXRvbWF0aW9uLCB0ZXN0aW5nLCBhbmQgdGhlc2UgcHJvcGVydGllcyByZWluZm9yY2UgZWFjaCBvdGhlcjogYSBzeXN0ZW0gdGhhdCdzIGxvb3NlbHkgY291cGxlZCBhbmQgb2JzZXJ2YWJsZSBpcyBhbHNvIHRoZSBvbmUgdGhhdCdzIGVhc2llc3QgdG8gdGVzdCBhbmQgc2FmZSB0byBkZXBsb3kgYXV0b21hdGljYWxseS4K</script>
+<script>
+  const b64 = document.getElementById("md-source").textContent.trim();
+  const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+  const md = new TextDecoder("utf-8").decode(bytes);
+  document.getElementById("content").innerHTML = marked.parse(md);
+</script>
+
+</body>
+</html>
