@@ -175,5 +175,16 @@ const entries = [
       "title": "Best Profit",
       "src": "entry-13/exercise.html"
     }
+  },
+  {
+    "number": 14,
+    "label": "Entry 14",
+    "date": "2026-09-07",
+    "title": "Entry 14: Up & Running in Production",
+    "concepts": "entry-14/concepts.html",
+    "exercise": {
+      "title": "Group Anagrams",
+      "src": "entry-14/exercise.html"
+    }
   }
 ];
