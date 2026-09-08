@@ -186,5 +186,16 @@ const entries = [
       "title": "Group Anagrams",
       "src": "entry-14/exercise.html"
     }
+  },
+  {
+    "number": 15,
+    "label": "Entry 15",
+    "date": "2026-09-08",
+    "title": "Entry 15: Relational Databases",
+    "concepts": "entry-15/concepts.html",
+    "exercise": {
+      "title": "Min and Max",
+      "src": "entry-15/exercise.html"
+    }
   }
 ];
