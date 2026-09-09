@@ -197,5 +197,16 @@ const entries = [
       "title": "Min and Max",
       "src": "entry-15/exercise.html"
     }
+  },
+  {
+    "number": 16,
+    "label": "Entry 16",
+    "date": "2026-09-09",
+    "title": "Entry 16: Networking Basics",
+    "concepts": "entry-16/concepts.html",
+    "exercise": {
+      "title": "Unique Characters",
+      "src": "entry-16/exercise.html"
+    }
   }
 ];

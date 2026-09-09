@@ -70,3 +70,13 @@ palindrome permutation, two-sum, string reverse), Arrays.merge, URLify.
 - [x] Group anagrams (hashmap grouping by sorted-string or char-count key, same family as the permutation-check exercise)
 - [ ] Merge intervals (sort + sweep over an array of ranges, common array/interval pattern)
 
+---
+
+## Blog write-up backlog
+
+Implemented (and, unless noted, tested) but not yet picked for a `web/entry-N/exercise.md`. Check off and move to "used" once an entry uses it.
+
+- [ ] `Day3.stringReverse` — reverse a string, tested (`shouldReverseAString`)
+- [ ] `Day3.isAPalindromePermutation` — check if a string's characters can be rearranged into a palindrome, tested (`shouldCheckPalindromePermutations`)
+- [ ] `Arrays.merge` — merge two sorted arrays, implemented but **no test yet**, needs a RED/GREEN cycle before it can be written up
+
