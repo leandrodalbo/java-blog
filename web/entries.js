@@ -201,12 +201,23 @@ const entries = [
   {
     "number": 16,
     "label": "Entry 16",
-    "date": "2026-09-09",
+    "date": "2026-09-10",
     "title": "Entry 16: Networking Basics",
     "concepts": "entry-16/concepts.html",
     "exercise": {
       "title": "Unique Characters",
       "src": "entry-16/exercise.html"
+    }
+  },
+  {
+    "number": 17,
+    "label": "Entry 17",
+    "date": "2026-09-10",
+    "title": "Entry 17: Operating Systems and Linux",
+    "concepts": "entry-17/concepts.html",
+    "exercise": {
+      "title": "Palindrome Permutation",
+      "src": "entry-17/exercise.html"
     }
   }
 ];

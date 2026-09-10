@@ -77,6 +77,6 @@ palindrome permutation, two-sum, string reverse), Arrays.merge, URLify.
 Implemented (and, unless noted, tested) but not yet picked for a `web/entry-N/exercise.md`. Check off and move to "used" once an entry uses it.
 
 - [ ] `Day3.stringReverse` — reverse a string, tested (`shouldReverseAString`)
-- [ ] `Day3.isAPalindromePermutation` — check if a string's characters can be rearranged into a palindrome, tested (`shouldCheckPalindromePermutations`)
+- [x] `Day3.isAPalindromePermutation` — check if a string's characters can be rearranged into a palindrome, tested (`shouldCheckPalindromePermutations`) — used in entry-17
 - [ ] `Arrays.merge` — merge two sorted arrays, implemented but **no test yet**, needs a RED/GREEN cycle before it can be written up
 
