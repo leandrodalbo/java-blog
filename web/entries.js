@@ -219,5 +219,16 @@ const entries = [
       "title": "Palindrome Permutation",
       "src": "entry-17/exercise.html"
     }
+  },
+  {
+    "number": 18,
+    "label": "Entry 18",
+    "date": "2026-09-11",
+    "title": "Entry 18: TDCG, Using AI safely",
+    "concepts": "entry-18/concepts.html",
+    "exercise": {
+      "title": "String Reverse",
+      "src": "entry-18/exercise.html"
+    }
   }
 ];
