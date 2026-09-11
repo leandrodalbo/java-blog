@@ -20,21 +20,19 @@ AI can generate the implementation I need much faster than I can write it by han
 7. COMMIT   - one small, focused commit with a clear why
 ```
 
-One behavior per cycle. If a step grows too big to review in one sitting, it is a sign the specify step was too big, not a reason to skip review.
-
 ## Why each step earns its place
 
 - **SPECIFY** forces one small behavior at a time.
 
-- **RED** happens before any implementation exists. If a human never reads the test, they never really own the specification, they are just trusting the AI's guess at what "done" means.
+- **RED** happens before any implementation exists. If a human never reads the test, they never really own the specification; they are just trusting the AI's guess at what "done" means.
 
 - **PROMPT** hands the approved tests back to the AI as the spec, along with a reference file or existing pattern to follow.
 
-- **GREEN** only passes because the tests already say what correct looks like. 
+- **GREEN** only passes because the tests already say what correct looks like.
 
-- **REVIEW** is the step a bare prompt skips. Passing tests say nothing about naming, duplication, or whether the design fits the rest of the codebase, so an experienced human still has to read the implementation.
+- **REVIEW** Passing tests say nothing about naming, duplication, or whether the design fits the rest of the codebase, so an experienced human still has to read the implementation.
 
-- **REFACTOR** applies what review found: renaming, removing duplication, simplifying. Tests stay green throughout, if a refactor breaks one, the refactor is wrong, not the test.
+- **REFACTOR** Change what we found during the review: renaming, removing duplication, simplifying. Tests stay green throughout; if a refactor breaks one, the refactor is wrong, not the test.
 
 - **COMMIT** stays small on purpose. A small, tested, reviewed change is easy to understand and easy to undo if something goes wrong.
 
@@ -49,8 +47,8 @@ Be more careful with:
 
 - greenfield design, there is no existing pattern for the AI to anchor to, so the specify step has more room to drift
 
-- performance and security-sensitive code, since passing tests prove the behavior asked for, not that it is fast enough or safe against a determined situations
+- performance and security-sensitive code, since passing tests prove the behavior asked for, not that it is fast enough or safe against a determined attacker
 
 ## The habit, not just the steps
 
-The point is to stop generated implementations from getting into a codebase without proof they do what they claim, and without a human who actually read them. TDCG just turns that into a habit that is hard to skip by accident.
+The point is to stop generated implementations from getting into a codebase without proof that it is doing what it needs to do, and without a human who actually read them. TDCG just turns that into a habit that is hard to skip by accident.
