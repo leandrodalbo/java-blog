@@ -230,5 +230,16 @@ const entries = [
       "title": "String Reverse",
       "src": "entry-18/exercise.html"
     }
+  },
+  {
+    "number": 19,
+    "label": "Entry 19",
+    "date": "2026-09-12",
+    "title": "Entry 19: Software Paradigms",
+    "concepts": "entry-19/concepts.html",
+    "exercise": {
+      "title": "Frequency Table, Two Ways",
+      "src": "entry-19/exercise.html"
+    }
   }
 ];

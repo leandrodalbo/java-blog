@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frequency Table, Two Ways · Systems &amp; Software Concepts</title>
+<meta name="description" content="Build a frequency table for the characters in a string.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Frequency Table, Two Ways · Systems &amp; Software Concepts">
+<meta property="og:description" content="Build a frequency table for the characters in a string.">
+<meta property="og:url" content="https://softwaresystems.blog/entry-19/exercise.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Frequency Table, Two Ways · Systems &amp; Software Concepts">
+<meta name="twitter:description" content="Build a frequency table for the characters in a string.">
+<script src="../theme.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script src="../tailwind.config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* keep ASCII/box-drawing diagrams intact: no wrapping, scroll if too wide */
+  .prose pre { white-space: pre; overflow-x: auto; }
+</style>
+</head>
+<body class="font-sans bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200 min-h-screen">
+
+<header class="border-b border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 py-6 flex items-center justify-between">
+    <a href="../index.html" class="text-sm font-medium text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300">← Systems &amp; Software Concepts</a>
+    <button
+      onclick="toggleTheme()"
+      aria-label="Toggle dark mode"
+      title="Toggle dark mode"
+      class="shrink-0 rounded-full border border-stone-200 bg-white p-2 text-base leading-none hover:border-amber-300 dark:border-stone-700 dark:bg-stone-800 dark:hover:border-amber-500"
+    >
+      <span class="dark:hidden">🌙</span>
+      <span class="hidden dark:inline">☀️</span>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 sm:px-8 py-10">
+  <article
+    id="content"
+    class="prose prose-lg prose-stone dark:prose-invert max-w-none font-serif
+           prose-headings:font-sans prose-headings:font-semibold
+           prose-code:font-mono prose-pre:font-mono
+           prose-a:text-amber-700 dark:prose-a:text-amber-400"
+  ></article>
+</main>
+
+<!-- Markdown source, base64-encoded so it ships inline with no fetch() of a
+     separate file — that's what breaks when this page is opened via file://. -->
+<script id="md-source" type="text/plain">IyBGcmVxdWVuY3kgVGFibGUsIFR3byBXYXlzCgojIyBQcm9ibGVtCgpCdWlsZCBhIGZyZXF1ZW5jeSB0YWJsZSBmb3IgdGhlIGNoYXJhY3RlcnMgaW4gYSBzdHJpbmcuCgpXaGF0IHdvdWxkIHRoZSBmdW5jdGlvbmFsIGFwcHJvYWNoIGxvb2sgbGlrZT8KCmBgYGphdmEKZnJlcVRhYmxlU3RyZWFtcygiQUFCQkJDIikgLT4gdGFibGVbJ0EnXSA9PSAyLCB0YWJsZVsnQiddID09IDMsIHRhYmxlWydDJ10gPT0gMQpgYGAKCiMjIFRlc3RzIChSRUQpCgpgYGBqYXZhCkBUZXN0CnB1YmxpYyB2b2lkIHNob3VsZEJ1aWxkQUZyZXFUYWJsZVdpdGhTdHJlYW1zKCkgewogICAgRGF5MiBkYXkyID0gbmV3IERheTIoKTsKCiAgICBpbnRbXSB0YWJsZSA9IGRheTIuZnJlcVRhYmxlU3RyZWFtcygiQUFCQkJDIik7CgogICAgYXNzZXJ0VGhhdCh0YWJsZVsnQSddKS5pc0VxdWFsVG8oMik7CiAgICBhc3NlcnRUaGF0KHRhYmxlWydCJ10pLmlzRXF1YWxUbygzKTsKICAgIGFzc2VydFRoYXQodGFibGVbJ0MnXSkuaXNFcXVhbFRvKDEpOwp9CmBgYAoKVGhlIHRlc3RzIHNob3VsZCBjaGVjayB0aGF0IHRoZSBuZXcgaW1wbGVtZW50YXRpb24gYmVoYXZlcyB0aGUgc2FtZSBhcyB0aGUgZXhpc3Rpbmcgb25lLgoKIyMgSW1wbGVtZW50YXRpb24gKEdSRUVOKQoKYGBgamF2YQpwdWJsaWMgaW50W10gZnJlcVRhYmxlU3RyZWFtcyhTdHJpbmcgd29yZCkgewogICAgaW50W10gcmVzdWx0ID0gbmV3IGludFsxMjhdOwogICAgd29yZC5jaGFycygpLmZvckVhY2goYyAtPiByZXN1bHRbY10rKyk7CiAgICByZXR1cm4gcmVzdWx0Owp9CmBgYAoKQ29tcGFyZSBpdCB3aXRoIHRoZSBvcmlnaW5hbDoKCmBgYGphdmEKcHVibGljIGludFtdIGZyZXFUYWJsZShTdHJpbmcgd29yZCkgewogICAgY2hhcltdIGNoYXJzID0gd29yZC50b0NoYXJBcnJheSgpOwogICAgaW50W10gcmVzdWx0ID0gbmV3IGludFsxMjhdOwoKICAgIGZvciAoaW50IGkgPSAwOyBpIDwgY2hhcnMubGVuZ3RoOyBpKyspIHsKICAgICAgICByZXN1bHRbY2hhcnNbaV1dKys7CiAgICB9CgogICAgcmV0dXJuIHJlc3VsdDsKfQpgYGAKCiMjIFdhcyBpdCB3b3J0aCBpdD8KCk5vdCByZWFsbHkuIFRoZSBzdHJlYW0gdmVyc2lvbiByZW1vdmVzIHRoZSBleHBsaWNpdCBsb29wLCBidXQgaXQgc3RpbGwgbXV0YXRlcyBgcmVzdWx0YCBvbiBldmVyeSBlbGVtZW50LgoKQSBtb3JlIGZ1bmN0aW9uYWwgdmVyc2lvbiBjb3VsZCByZXR1cm4gYSBgTWFwYDoKCmBgYGphdmEKTWFwPENoYXJhY3RlciwgTG9uZz4gY291bnRzID0gd29yZC5jaGFycygpCiAgICAubWFwVG9PYmooYyAtPiAoY2hhcikgYykKICAgIC5jb2xsZWN0KENvbGxlY3RvcnMuZ3JvdXBpbmdCeShjIC0+IGMsIENvbGxlY3RvcnMuY291bnRpbmcoKSkpOwpgYGAKCkJ1dCB0aGF0IGNoYW5nZXMgdGhlIHJldHVybiB0eXBlIGFuZCB3b3VsZCByZXF1aXJlIGNoYW5nZXMgdG8gdGhlIGNvZGUgdXNpbmcgaXQuCgoqKlRoZSB0YWtlYXdheToqKiB1c2Ugc3RyZWFtcyB3aGVuIHRoZXkgbWFrZSBhIHRyYW5zZm9ybWF0aW9uIGNsZWFyZXIsIG5vdCBqdXN0IGJlY2F1c2UgYSBsb29wIGNhbiBiZSByZXdyaXR0ZW4gYXMgb25lLiAKCiMjIENvbXBsZXhpdHkKCmBgYHRleHQKVGltZTogIE8oTikKU3BhY2U6IE8oMSksIHRoZSBvdXRwdXQgYXJyYXkgYWx3YXlzIGhhcyAxMjggZWxlbWVudHMKYGBgCg==</script>
+<script>
+  const b64 = document.getElementById("md-source").textContent.trim();
+  const bytes = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+  const md = new TextDecoder("utf-8").decode(bytes);
+  document.getElementById("content").innerHTML = marked.parse(md);
+</script>
+
+</body>
+</html>

@@ -41,6 +41,17 @@ public class Day2Test
     }
 
     @Test
+    public void shouldBuildAFreqTableWithStreams(){
+        Day2 day2 = new Day2();
+
+        int[] table = day2.freqTableStreams("AABBBC");
+
+        assertThat(table['A']).isEqualTo(2);
+        assertThat(table['B']).isEqualTo(3);
+        assertThat(table['C']).isEqualTo(1);
+    }
+
+    @Test
     public void shouldCheckEveryCharIsUnique(){
         Day2 day2 = new Day2();
 

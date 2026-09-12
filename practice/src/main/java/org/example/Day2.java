@@ -86,6 +86,20 @@ public class Day2
         return result;
     }
 
+    /*
+        time O(N) Space O(1)
+        Same contract as freqTable, built with a Streams pipeline instead
+        of a hand-rolled loop.
+     */
+    public int[] freqTableStreams(String word)
+    {
+        int[] result = new int[128];
+
+        word.chars().forEach(c -> result[c]++);
+
+        return result;
+    }
+
 
     /*
         TIME O(N) * O(128) => O(N) * O(1) => O(N)
