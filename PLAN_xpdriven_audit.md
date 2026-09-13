@@ -30,7 +30,7 @@ framing, kept the technical substance.
 in `forEach`, so it isn't actually side-effect-free, and a genuinely
 pure version would require changing the return type and its callers.
 
-## Entry 20: Software Design, Clean Code & Working Together — NOT STARTED
+## Entry 20: Software Design, Clean Code & Working Together — DONE (2026-09-13, concepts.md + exercise.md, built)
 
 Source: `softwaredesign.ts` + `WhatIsCleanCode.ts` + `CodeReadabilityMatters.ts`,
 with a short Agile-values section folded in (from `AgileManifesto.ts`,
@@ -45,13 +45,11 @@ per your call to merge rather than give Agile its own entry or drop it).
   above, one line noting Scrum/Kanban are common ways teams structure
   that, out of scope here
 
-**Exercise: `Arrays.merge` test retrofit.** The implementation already
-exists (`practice/src/main/java/org/example/Arrays.java`) with no test —
-flagged in `practice/EXERCISES.md`'s "Blog write-up backlog". Write the
-missing tests now (equal length, different lengths, one empty,
-duplicates, negatives), framed as a design-debt example, and note
-honestly that this is retrofitting a test onto pre-existing code, not
-textbook test-first TDD.
+**Exercise — DONE: `Arrays.merge` test retrofit.** Added
+`ArraysTest.java` (5 cases: equal length, different lengths, one empty,
+duplicates, negatives), all passing against the existing implementation
+unchanged, and `entry-20/exercise.md` framing it honestly as retrofitting
+tests onto pre-existing code rather than textbook test-first TDD.
 
 ## Entry 21: Test-Driven Development — NOT STARTED
 

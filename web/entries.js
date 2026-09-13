@@ -241,5 +241,16 @@ const entries = [
       "title": "Frequency Table, Two Ways",
       "src": "entry-19/exercise.html"
     }
+  },
+  {
+    "number": 20,
+    "label": "Entry 20",
+    "date": "2026-09-13",
+    "title": "Entry 20: Software Design, Writing It Well & Working Together",
+    "concepts": "entry-20/concepts.html",
+    "exercise": {
+      "title": "Arrays.merge Test Retrofit",
+      "src": "entry-20/exercise.html"
+    }
   }
 ];

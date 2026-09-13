@@ -78,5 +78,5 @@ Implemented (and, unless noted, tested) but not yet picked for a `web/entry-N/ex
 
 - [x] `Day3.stringReverse` — reverse a string, tested (`shouldReverseAString`) — used in entry-18
 - [x] `Day3.isAPalindromePermutation` — check if a string's characters can be rearranged into a palindrome, tested (`shouldCheckPalindromePermutations`) — used in entry-17
-- [ ] `Arrays.merge` — merge two sorted arrays, implemented but **no test yet**, needs a RED/GREEN cycle before it can be written up
+- [x] `Arrays.merge` — merge two sorted arrays, tested (`ArraysTest`, 5 cases) — used in entry-20
 
