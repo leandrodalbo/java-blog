@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About · Systems &amp; Software Concepts</title>
+<meta name="description" content="About Leandro Dal Bo — backend software engineer and creator of this blog, and of the Open Football Project.">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="About · Systems &amp; Software Concepts">
+<meta property="og:description" content="About Leandro Dal Bo — backend software engineer and creator of this blog, and of the Open Football Project.">
+<meta property="og:url" content="https://softwaresystems.blog/about.html">
+<meta name="twitter:card" content="summary">
+<script src="theme.js"></script>
+<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+<script src="tailwind.config.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans bg-stone-50 text-stone-800 dark:bg-stone-950 dark:text-stone-200 min-h-screen">
+
+<header class="border-b border-stone-200 bg-white dark:border-stone-800 dark:bg-stone-900">
+  <div class="max-w-3xl mx-auto px-6 sm:px-8 py-6 flex items-center justify-between">
+    <a href="index.html" class="text-sm font-medium text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300">← Systems &amp; Software Concepts</a>
+    <button
+      onclick="toggleTheme()"
+      aria-label="Toggle dark mode"
+      title="Toggle dark mode"
+      class="shrink-0 rounded-full border border-stone-200 bg-white p-2 text-base leading-none hover:border-amber-300 dark:border-stone-700 dark:bg-stone-800 dark:hover:border-amber-500"
+    >
+      <span class="dark:hidden">🌙</span>
+      <span class="hidden dark:inline">☀️</span>
+    </button>
+  </div>
+</header>
+
+<main class="max-w-3xl mx-auto px-6 sm:px-8 py-12">
+  <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
+    <img
+      src="about-photo.jpg"
+      alt="Leandro Dal Bo"
+      class="w-32 h-32 rounded-full object-cover border-4 border-white dark:border-stone-800 shadow-sm shrink-0"
+    >
+    <div class="text-center sm:text-left">
+      <h1 class="text-3xl font-bold text-stone-900 dark:text-stone-50">Leandro Dal Bo</h1>
+      <p class="mt-2 text-stone-600 dark:text-stone-400">
+        Backend-focused software programmer. Writes this blog and maintains the Open Football Project.
+      </p>
+      <div class="mt-4 flex flex-wrap justify-center sm:justify-start gap-x-5 gap-y-2 text-sm">
+        <a class="text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300 font-medium" href="https://github.com/leandrodalbo" target="_blank" rel="noopener noreferrer">GitHub →</a>
+        <a class="text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300 font-medium" href="https://www.linkedin.com/in/leandrodlb/" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
+        <a class="text-amber-700 dark:text-amber-400 hover:text-amber-900 dark:hover:text-amber-300 font-medium" href="https://footballproject.org" target="_blank" rel="noopener noreferrer">footballproject.org →</a>
+      </div>
+    </div>
+  </div>
+
+  <article class="mt-10 prose prose-lg prose-stone dark:prose-invert max-w-none font-serif
+                   prose-headings:font-sans prose-headings:font-semibold
+                   prose-a:text-amber-700 dark:prose-a:text-amber-400">
+    <p>
+      I’m a backend-focused software programmer with more than a couple
+      of years of experience in Java, Kotlin, and Spring Boot. I care
+      about TDD/BDD and good practices, and about integrating AI into
+      that workflow responsibly. This blog helped me refresh concepts
+      I hadn’t touched in years — I wish someone had explained things
+      this simply when I was starting out, so I decided to share it
+      with the world in case it helps someone else.
+    </p>
+    <p>
+      Outside of the blog, I maintain the
+      <a href="https://footballproject.org" target="_blank" rel="noopener noreferrer">Open Football Project</a>
+      (footballproject.org), a football analytics platform built around
+      a Kotlin/Spring Boot API, a live-events service, a React web app,
+      and a React Native mobile app. It aggregates and normalises
+      football leagues, scores, and stats from around the world, and
+      it’s open source.
+    </p>
+    <p>
+      Want the whole blog offline?
+      <a href="systems-and-software-concepts.pdf">Download it as a PDF</a>.
+    </p>
+  </article>
+</main>
+
+<footer class="max-w-3xl mx-auto px-6 sm:px-8 py-10 border-t border-stone-200 dark:border-stone-800 text-sm text-stone-400 dark:text-stone-600">
+  <div class="flex flex-wrap items-center gap-x-4 gap-y-2">
+    <span class="text-stone-500 dark:text-stone-500">Leandro Dal Bo</span>
+    <span class="text-stone-300 dark:text-stone-700">·</span>
+    <a class="hover:text-amber-700 dark:hover:text-amber-400" href="https://github.com/leandrodalbo" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a class="hover:text-amber-700 dark:hover:text-amber-400" href="https://www.linkedin.com/in/leandrodlb/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+  </div>
+</footer>
+
+</body>
+</html>

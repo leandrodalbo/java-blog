@@ -22,8 +22,13 @@ rebrand note in the Progress log below for what changed structurally.
 ## Public repo — handle with care
 
 No credentials/tokens ever. Don't hand-add `.idea`/`target` even on "add
-everything." Only personal info allowed is the byline already in the
-footer — no employer/recruiter names without asking first.
+everything." Personal info allowed: the footer byline, and — as of the
+`about.html` page added 2026-09-13 — a short bio, headshot
+(`about-photo.jpg`), skill summary, and a link to the Open Football
+Project. Deliberately excluded from that bio: employer/recruiter names
+and sectors (asked and declined) — keep it to skills and years of
+experience in general terms. Still ask first before adding anything
+beyond that (specific employers, clients, addresses, phone/email).
 
 ## Structure
 
@@ -44,6 +49,14 @@ footer — no employer/recruiter names without asking first.
     list.
   - `index.html` — the blog homepage, links to every generated
     `entry-N/*.html`.
+  - `about.html` — hand-written (not generated), a short bio + photo +
+    links (GitHub, LinkedIn, Open Football Project) + the PDF download.
+    Linked from the homepage header.
+  - `build_pdf.py` — run after `build.py`: `python3 build_pdf.py`.
+    Renders every entry's concepts + exercise into one print-styled HTML
+    page and prints it to `systems-and-software-concepts.pdf` via
+    headless Chrome (`google-chrome-stable`). Linked from the homepage
+    header and from `about.html`.
 - `practice/` — Java (Maven, JUnit 5 + AssertJ) exercise sprint. Its own
   `DayN.java`/`DayNTest.java` naming predates the blog rebrand and is
   unrelated to the `entry-N` web folders — leave it as-is, see
@@ -136,3 +149,12 @@ to a beginner in a few minutes, even if there's a senior-level angle
   `DayN.java` naming) was deliberately left untouched — the rename is
   scoped to the public `web/` blog and its branding, not the exercise
   sprint's internal naming.
+- **Closed at 20** (2026-09-13): Entry 21 (Test-Driven Development /
+  Binary Search) was built, then pulled — the blog closes at Entry 20 by
+  decision; see the "DROPPED" note in `PLAN_xpdriven_audit.md` for
+  detail, dropped content kept locally (gitignored) under
+  `.dropped-entry-21/` rather than deleted outright, in case it's picked
+  back up later. Added `about.html` (bio + `about-photo.jpg` + Open
+  Football Project link + PDF download, see the policy update above) and
+  `build_pdf.py` (whole blog as one downloadable PDF, linked from the
+  homepage header and `about.html`).

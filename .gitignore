@@ -10,3 +10,9 @@ target/
 # OS
 .DS_Store
 Thumbs.db
+
+# local backups of dropped content, not for the public repo
+.dropped-entry-21/
+
+# intermediate editable working copy, not a published artifact
+web/systems-and-software-concepts-EDITABLE.docx

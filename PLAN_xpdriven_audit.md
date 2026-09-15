@@ -51,21 +51,12 @@ duplicates, negatives), all passing against the existing implementation
 unchanged, and `entry-20/exercise.md` framing it honestly as retrofitting
 tests onto pre-existing code rather than textbook test-first TDD.
 
-## Entry 21: Test-Driven Development — NOT STARTED
+## Entry 21: Test-Driven Development — DROPPED (2026-09-13)
 
-Source: `WhatIsTDD.ts`, Kotlin example replaced with Java, cross-references
-entry 18 (TDCG applies this same loop to AI-generated code).
-
-- What TDD actually is (tests before implementation, XP origin)
-- The cycle: RED -> GREEN -> REFACTOR
-- Self-tested code (confidence + documentation that can't silently rot)
-- Common objections, answered plainly
-- Where it's a natural fit vs where it's harder
-
-**Exercise: Binary search**, full SPECIFY -> RED -> GREEN cycle (find a
-target's index in a sorted array, plus first/last occurrence). Not yet
-implemented in `practice/` — this is a real TDD cycle, not a write-up of
-existing code. O(log n) time, O(1) space.
+Was built (concepts.md + exercise.md, `BinarySearch.java`/Test, blog
+built and rebuilt) then removed: the blog closes at Entry 20 by
+decision, so this entry and its exercise were pulled back out rather
+than published. Not picked back up unless the 20-entry scope changes.
 
 ## Not used from xpdriven-blog
 

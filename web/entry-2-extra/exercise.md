@@ -51,7 +51,9 @@ public int factorial(int x) {
 
     return result;
 }
+```
 
+```java
 /*
     Complexity: O(x) time and O(x) space
 */
